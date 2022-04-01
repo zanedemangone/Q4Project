@@ -15,6 +15,7 @@ public class DatasetGenerator {
 
 	public static void main(String[] args) throws Exception {
 		initializeArrays();
+
 		//TODO add method for initializing new characters from random attributes
 		//TODO add more for donated, personal statements, and extracurriculars
 
