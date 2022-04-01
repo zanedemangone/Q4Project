@@ -13,12 +13,28 @@ public class DatasetGenerator {
 	private static ArrayList<String> donation = new ArrayList<String>();
 	private static ArrayList<String> donated = new ArrayList<String>();
 
-	public static void main(String[] args) throws Exception {
-		initializeArrays();
-
-		//TODO add method for initializing new characters from random attributes
-		//TODO add more for donated, personal statements, and extracurriculars
-
+	public DatasetGenerator() {
+		try {
+			initializeArrays();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public String[] generatePerson() {
+		Random r = new Random();
+		
+		String[] ret = new String[8];
+		ret[0] = firstNames.get(r.nextInt(firstNames.size()));
+		ret[1] = lastNames.get(r.nextInt(lastNames.size()));
+		ret[2] = location.get(r.nextInt(location.size()));
+		ret[3] = personalStatements.get(r.nextInt(personalStatements.size()));
+		ret[4] = gpa.get(r.nextInt(gpa.size()));
+		ret[5] = extracurriculars.get(r.nextInt(extracurriculars.size()));
+		ret[6] = donation.get(r.nextInt(donation.size()));
+		ret[7] = donated.get(r.nextInt(donated.size()));
+		
+		return ret;
 	}
 
 	private static void initializeArrays() throws Exception {

@@ -7,13 +7,13 @@ import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class background{
+public class Background{
 	
 	//add location attributes
 	private Image img; 	
 	private AffineTransform tx;
 
-	public background(int x, int y) {
+	public Background(int x, int y) {
 		img = getImage("/imgs/bg.png"); //load the image for Tree
 		tx = AffineTransform.getTranslateInstance(x, y );
 		init(x, y); 				//initialize the location of the image
@@ -52,7 +52,7 @@ public class background{
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
-			URL imageURL = background.class.getResource(path);
+			URL imageURL = Background.class.getResource(path);
 			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();
