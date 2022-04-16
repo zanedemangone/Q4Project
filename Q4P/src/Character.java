@@ -1,3 +1,5 @@
+import static java.lang.Integer.valueOf;
+
 public class Character {
 	
 	private String firstName;
@@ -5,7 +7,7 @@ public class Character {
 	private String location;
 	private String personalStatement;
 	private String gpa;
-	private String extracurriculars;
+	private String extracurricular;
 	private String donation;
 	private String donated;
 	
@@ -18,9 +20,12 @@ public class Character {
 		location = c[2];
 		personalStatement = c[3];
 		gpa = c[4];
-		extracurriculars = c[5];
+		extracurricular = c[5];
 		donation = c[6];
 		donated = c[7];
+		if(getDonationAsInt()>=850000) {
+			donated = lastName + " Memorial Library"; //lol
+		}
 	}
 
 	public String getFirstName() {
@@ -35,6 +40,13 @@ public class Character {
 		return location;
 	}
 
+	public boolean locationEquals(String target) {
+		if(getLocation().equals(target)) {
+			return true;
+		}
+		return false;
+	}
+
 	public String getPersonalStatement() {
 		return personalStatement;
 	}
@@ -47,12 +59,53 @@ public class Character {
 		return Double.parseDouble(gpa);
 	}
 
-	public String getExtracurriculars() {
-		return extracurriculars;
+	public boolean gpaAbove(double threshold) {
+		if(getGpaAsDouble()>=threshold) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean gpaBelow(double threshold) {
+		if(getGpaAsDouble()<threshold) {
+			return true;
+		}
+		return false;
+	}
+
+	public String getExtracurricular() {
+		return extracurricular;
+	}
+
+	public boolean extracurricularEquals(String target) {
+		if(getExtracurricular().equals(target)) {
+			return true;
+		}
+		return false;
 	}
 
 	public String getDonation() {
 		return donation;
+	}
+
+	public int getDonationAsInt() {
+		String temp = getDonation();
+		temp = temp.substring(1).replaceAll(",", ""); //remove $ and ,
+		return Integer.parseInt(temp);
+	}
+
+	public boolean donationAbove(int threshold) {
+		if(getDonationAsInt()>=threshold) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean donationBelow(int threshold) {
+		if(getDonationAsInt()<threshold) {
+			return true;
+		}
+		return false;
 	}
 
 	public String getDonated() {
