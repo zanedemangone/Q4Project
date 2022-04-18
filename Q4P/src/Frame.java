@@ -20,7 +20,7 @@ import javax.swing.Timer;
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	
 	//CREATE THE OBJECT (STEP 1)
-	
+	background bg = new background(0,0); 
 
 	
 
