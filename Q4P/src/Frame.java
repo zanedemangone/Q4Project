@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.Window;
@@ -20,6 +21,7 @@ import javax.swing.Timer;
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	
 	//CREATE THE OBJECT (STEP 1)
+	Background bg = new Background(0,0); 
 	
 
 	
@@ -27,6 +29,13 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 
 public static void main(String[] arg) {
 	Frame f = new Frame();
+}
+
+public void paint(Graphics g) {
+	super.paintComponent(g);
+	bg.paint(g); 
+	
+	
 }
 
 public Frame() {

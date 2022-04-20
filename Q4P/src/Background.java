@@ -14,9 +14,9 @@ public class Background{
 	private AffineTransform tx;
 
 	public Background(int x, int y) {
-		img = getImage("/imgs/bg.png"); //load the image for Tree
-		img = getImage("/imgs/desk_bg.png"); //load the image for Tree
-		tx = AffineTransform.getTranslateInstance(x, y );
+		
+		img = getImage("./imgs/desk_bg.png"); //load the image for Tree
+		tx = AffineTransform.getTranslateInstance(x, y);
 		init(x, y); 				//initialize the location of the image
 									//use your variables
 	}
@@ -39,15 +39,31 @@ public class Background{
 
 	}
 	/* update the picture variable location */
-	private void update() {
-
-		
+	
+	public void update() {
 		
 	}
 	
+	private void updateToGmail() {
+		img = getImage("/imgs/gmail_bg.png"); 
+		
+	}
+	
+	private void updateToDesk() {
+		// TODO Auto-generated method stub
+		
+		img = getImage("/imgs/desk_bg.png"); 
+		
+	}
+	
+	public void updateToCS() {
+		img = getImage("/imgs/cs_bg.png"); 
+	}
+
+
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
-		tx.scale(2.5, 2.5);
+		tx.scale(2.0, 1.9);
 	}
 
 	private Image getImage(String path) {
