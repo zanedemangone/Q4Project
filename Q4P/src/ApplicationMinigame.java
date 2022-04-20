@@ -16,6 +16,7 @@ public class ApplicationMinigame {
 		    };
 		};	
 		t.schedule(tt, gameLength);
+		//call other method
 	}
 	
 	public void gameCompleted(boolean wasCorrect) {

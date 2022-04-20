@@ -10,6 +10,7 @@ public class Character {
 	private String extracurricular;
 	private String donation;
 	private String donated;
+	private int faceNum;
 	
 	private static DatasetGenerator g = new DatasetGenerator();
 	
@@ -26,6 +27,11 @@ public class Character {
 		if(getDonationAsInt()>=850000) {
 			donated = lastName + " Memorial Library"; //lol
 		}
+		faceNum = valueOf(c[8]);
+	}
+
+	public int getFaceNum() {
+		return faceNum;
 	}
 
 	public String getFirstName() {

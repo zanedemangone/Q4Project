@@ -24,7 +24,7 @@ public class DatasetGenerator {
 	public String[] generatePerson() {
 		Random r = new Random();
 		
-		String[] ret = new String[8];
+		String[] ret = new String[9];
 		ret[0] = firstNames.get(r.nextInt(firstNames.size()));
 		ret[1] = lastNames.get(r.nextInt(lastNames.size()));
 		ret[2] = location.get(r.nextInt(location.size()));
@@ -33,6 +33,7 @@ public class DatasetGenerator {
 		ret[5] = extracurriculars.get(r.nextInt(extracurriculars.size()));
 		ret[6] = donation.get(r.nextInt(donation.size()));
 		ret[7] = donated.get(r.nextInt(donated.size()));
+		ret[8] = r.nextInt(10)+"";
 		
 		return ret;
 	}
