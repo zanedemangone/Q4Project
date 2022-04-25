@@ -40,7 +40,7 @@ public void paint(Graphics g) {
 
 public Frame() {
 	JFrame f = new JFrame("frame");
-	f.setSize(new Dimension(720, 480));
+	f.setSize(new Dimension(1440, 930));
 	f.setBackground(Color.blue);
 	f.add(this);
 	f.setResizable(false);
