@@ -23,8 +23,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	//CREATE THE OBJECT (STEP 1)
 	Background bg = new Background(0,0); 
 	
-
-	
+	//checks which background is showing to make sure that transitions are smooth 
+	boolean desk_check = true; 
+	boolean chrome_check = false; 
+	boolean gmail_check = false; 
 
 
 public static void main(String[] arg) {
@@ -35,6 +37,11 @@ public void paint(Graphics g) {
 	super.paintComponent(g);
 	bg.paint(g); 
 	
+	//chrome hitbox
+	g.drawRoundRect(145, 285, 40, 40, 10, 10);
+
+	//gmail hitbox
+	g.drawRoundRect(140, 230, 48, 30, 10, 10);
 	
 }
 
@@ -56,7 +63,17 @@ public Frame() {
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-	
+		if((arg0.getX() >= 145 && arg0.getX() <= 180) && (arg0.getY() >= 285 && arg0.getY() <= 345) && desk_check == true) {
+			bg.updateToCS(); 
+			desk_check = false; 
+			chrome_check = true; 
+		}
+
+		if((arg0.getX() >= 140 && arg0.getX() <= 188) && (arg0.getY() >= 230 && arg0.getY() <= 280) && desk_check == true) {
+			bg.updateToGmail();
+			desk_check = false; 
+			gmail_check = true; 
+		}
 	}
 	
 	@Override

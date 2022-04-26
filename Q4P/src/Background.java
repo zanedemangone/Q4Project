@@ -44,14 +44,14 @@ public class Background{
 		
 	}
 	
-	private void updateToGmail() {
+	public void updateToGmail() {
 		img = getImage("/imgs/gmail_bg.png"); 
-		
+
 	}
-	
-	private void updateToDesk() {
+
+	public void updateToDesk() {
 		// TODO Auto-generated method stub
-		
+
 		img = getImage("/imgs/desk_bg.png"); 
 		
 	}
