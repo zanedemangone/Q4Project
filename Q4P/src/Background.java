@@ -77,7 +77,7 @@ public class Background{
 	}
 
 	public void updateToRulesCloseUp() {
-		img = getImage("/ims/r_closeUp.png"); 
+		img = getImage("/imgs/r_closeUp.png"); 
 	}
 
 	private void init(double a, double b) {
