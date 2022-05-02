@@ -15,7 +15,7 @@ public class Background{
 
 	public Background(int x, int y) {
 		
-		img = getImage("./imgs/rules.gif"); //load the image for Tree
+		img = getImage("./imgs/desk_bg.png"); //load the image for Tree
 		tx = AffineTransform.getTranslateInstance(x, y);
 		init(x, y); 				//initialize the location of the image
 									//use your variables
