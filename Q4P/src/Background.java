@@ -15,7 +15,7 @@ public class Background{
 
 	public Background(int x, int y) {
 		
-		img = getImage("./imgs/desk_bg.png"); //load the image for Tree
+		img = getImage("./imgs/rules.gif"); //load the image for Tree
 		tx = AffineTransform.getTranslateInstance(x, y);
 		init(x, y); 				//initialize the location of the image
 									//use your variables
@@ -59,7 +59,26 @@ public class Background{
 	public void updateToCS() {
 		img = getImage("/imgs/cs_bg.png"); 
 	}
+	
+	public void updateToAO() {
+		img = getImage("/imgs/ao_bg.png"); 
+	}
 
+	public void updateToLogin() {
+		img = getImage("/imgs/login_bg.png"); 
+	}
+
+	public void updateToZoom() {
+		img = getImage("/imgs/zoom_main_ui_bg.png"); 
+	}
+
+	public void updateToRules() {
+		img = getImage("/imgs/rules.gif"); 
+	}
+
+	public void updateToRulesCloseUp() {
+		img = getImage("/ims/r_closeUp.png"); 
+	}
 
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
