@@ -36,6 +36,40 @@ public class DatasetGenerator {
 		ret[8] = r.nextInt(10)+"";
 		
 		return ret;
+	}	
+	
+	public String[] generateRequirements() {
+		Random r = new Random();
+		
+		String[] ret = new String[8];
+		ret[0] = location.get(r.nextInt(location.size())); //is not from, is from
+		ret[1] = location.get(r.nextInt(location.size())); //is not from, is from
+		ret[2] = location.get(r.nextInt(location.size())); //is not from, is from
+		ret[3] = gpa.get(r.nextInt(gpa.size())); //higher or lower
+		ret[4] = donation.get(r.nextInt(donation.size())); //higher or lower
+		//logic codes
+		if((int)r.nextInt()+100<=10) {
+			ret[5] = 1+""; //0 for is not from, 1 is is from
+		}
+		else { //(MORE LIKELY)
+			ret[5] = 0+""; //0 for is not from, 1 is is from
+		}
+		
+		if((int)r.nextInt()+100<=5) {
+			ret[6] = 0+""; //0 is lower, 1 is higher
+		}
+		else { //(MORE LIKELY)
+			ret[6] = 1+""; //0 is lower, 1 is higher
+		}
+		
+		if((int)r.nextInt()+100<=5) {
+			ret[7] = 0+""; //0 is lower, 1 is higher
+		}
+		else { //(MORE LIKELY)
+			ret[7] = 1+""; //0 is lower, 1 is higher 
+		}
+
+		return ret;
 	}
 
 	private static void initializeArrays() throws Exception {
