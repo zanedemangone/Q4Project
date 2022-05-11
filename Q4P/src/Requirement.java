@@ -106,8 +106,8 @@ public class Requirement {
 		return gpa;
 	}
 
-	public void setDonation(int don) {
-		this.don = don;
+	public int getDonation() {
+		return don;
 	}
 	
 }
