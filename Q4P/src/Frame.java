@@ -21,7 +21,8 @@ import javax.swing.Timer;
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	
 	//CREATE THE OBJECT (STEP 1)
-	Background bg = new Background(0,0); 
+	Background bg = new Background(0,0);
+	Application a = new Application(); 
 	
 	//checks which background is showing to make sure that transitions are smooth 
 	boolean desk_check = true; 
@@ -42,6 +43,9 @@ public void paint(Graphics g) {
 	super.paintComponent(g);
 	bg.paint(g); 
 	
+	if(report_check == true) {
+		a.paint(g);
+	}
 	//screen hitbox
 	//g.drawRect(100, 180, 710, 360);
 

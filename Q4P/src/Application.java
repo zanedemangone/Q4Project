@@ -22,7 +22,6 @@ public class Application {
 	private String ec; 
 	private String dMoney; 
 	private String location; 
-	private String hs;  
 
 	
 	Character a = new Character(); 
@@ -33,19 +32,22 @@ public class Application {
 		pStatement = ""; 
 		ec = ""; 
 		dMoney = a.getDonation(); 
-		location = ""; 
-		hs = ""; 
+		location = a.getLocation(); 
 	}
-	
-	//public String nextApplication() {
-		
-		
-		
-	//}
 
 	public void paint(Graphics g) {
-
-
+		//name
+		g.drawString(name, 1200, 300);
+		//gpa 
+		g.drawString(gpa, 1200, 350);
+		//pStatement
+		//g.drawString(pStatement, x, y); 
+		//ec
+		//g.drawString(ec, x, y);
+		//dMoney
+		//g.drawString(dMoney, x, y);
+		//location
+		//g.drawString(location, x, y); 
 
 	}
 
