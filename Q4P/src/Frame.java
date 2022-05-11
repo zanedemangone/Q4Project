@@ -31,6 +31,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean ao_check = false; 
 	boolean rules_check = false;
 	boolean r_close_check = false; 
+	boolean report_check = false; 
 
 
 public static void main(String[] arg) {
@@ -42,22 +43,31 @@ public void paint(Graphics g) {
 	bg.paint(g); 
 	
 	//screen hitbox
-	g.drawRect(100, 180, 710, 360);
+	//g.drawRect(100, 180, 710, 360);
 
 	//chrome/login hitbox 
-	g.drawRoundRect(154, 120, 70, 50, 20, 20);
+	//g.drawRoundRect(154, 120, 70, 50, 20, 20);
 
 	//gmail hitbox
-	g.drawRoundRect(156, 210, 65, 65, 20, 20);
+	//g.drawRoundRect(156, 210, 65, 65, 20, 20);
 
 	//login hitbox
-	g.drawRoundRect(1200, 75, 150, 42, 20, 20);
+	//g.drawRoundRect(1200, 75, 150, 42, 20, 20);
 
 	//rules hitbox 
-	g.drawRoundRect(1150, 140, 180, 300, 20, 20);
+	//g.drawRoundRect(1150, 140, 180, 300, 20, 20);
 
 	//rules close up hitbox
-	g.drawRoundRect(1000, 200, 300, 500, 20, 20);
+	//g.drawRoundRect(620, 100, 400, 580, 20, 20);
+
+	//application hitbox 
+	//g.drawRoundRect(60, 260, 780, 450, 30, 30);
+
+	//accept hitbox 
+	//g.drawRoundRect(430, 550, 340, 100, 30, 30);
+
+	//reject hitbox
+	//g.drawRoundRect(822, 550, 340, 100, 30, 30);
 	
 }
 
@@ -80,6 +90,7 @@ public Frame() {
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		//transition from desk to comp screen 
+		
 		if((arg0.getX() >= 100 && arg0.getX() <= 810) && (arg0.getY() >= 180 && arg0.getY() <= 580) && desk_check == true) {
 			bg.updateToCS();
 			desk_check = false; 
@@ -112,6 +123,26 @@ public Frame() {
 			desk_check = false; 
 			rules_check = true; 
 		}
+
+		if((arg0.getX() >= 620 && arg0.getX() <= 1020) && (arg0.getY() >= 100 && arg0.getY() <= 680) && rules_check == true) {
+			bg.updateToRulesCloseUp();
+			rules_check = false; 
+			r_close_check = true;
+		}
+
+		if((arg0.getX() >= 60 && arg0.getX() <= 840) && (arg0.getY() >= 260 && arg0.getY() <= 740) && ao_check == true) {
+			bg.updateToReport();
+			ao_check = false; 
+			report_check = true; 
+		}
+
+		if((arg0.getX() >= 430 && arg0.getX() <= 1162) && (arg0.getY() >= 550 && arg0.getY() <= 650) && report_check == true) {
+			//score for accept goes here 
+		}
+
+		if((arg0.getX() >= 822 && arg0.getX() <= 1162) && (arg0.getY() >= 550 && arg0.getY() <= 650) && report_check == true) {
+			//score for reject goes here 
+		}
 	}
 	
 	@Override
@@ -143,28 +174,45 @@ public Frame() {
 	
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		if(arg0.getKeyCode() == 27) {
-			if(screen_check == true) {
+		if (arg0.getKeyCode() == 27) {
+			if (screen_check == true) {
 				bg.updateToDesk();
-				desk_check = true; 
-				screen_check = false; 
-			}
-			if(gmail_check == true || login_check == true) {
-				bg.updateToCS();
-				screen_check = true; 
-				gmail_check = false; 
-				login_check = false; 
+				desk_check = true;
+				screen_check = false;
 			}
 
-			if(ao_check == true) {
+			if (gmail_check == true || login_check == true) {
+				bg.updateToCS();
+				screen_check = true;
+				gmail_check = false;
+				login_check = false;
+			}
+
+			if (ao_check == true) {
 				bg.updateToLogin();
-				ao_check = false; 
-				login_check = true; 
+				ao_check = false;
+				login_check = true;
+			}
+
+			if (rules_check == true) {
+				bg.updateToDesk();
+				desk_check = true;
+				rules_check = false;
+			}
+
+			if (r_close_check == true) {
+				bg.updateToRules();
+				rules_check = true;
+				r_close_check = false;
+			}
+
+			if (report_check == true) {
+				bg.updateToAO();
+				ao_check = true;
+				report_check = false;
 			}
 		}
-			System.out.println(arg0.getKeyCode());
-	
+		System.out.println(arg0.getKeyCode());
 	}
 	
 	@Override

@@ -22,21 +22,21 @@ public class Requirement {
 		gpa =  Double.parseDouble(rC[3]); //higher or lower
 		don = valueOf(rC[4]); //higher or lower
 		
-		if(rC[5].equals(0)) { //0 for is not from, 1 is from
+		if(rC[5].equals("0")) { //0 for is not from, 1 is from
 			c1=false;
 		}
 		else {
 			c1=true;
 		}
 		
-		if(rC[6].equals(0)) { //0 is lower, 1 is higher
+		if(rC[6].equals("0")) { //0 is lower, 1 is higher
 			c2=false;
 		}
 		else {
 			c2=true;
 		}
 		
-		if(rC[7].equals(0)) { //0 is lower, 1 is higher
+		if(rC[7].equals("0")) { //0 is lower, 1 is higher
 			c3=false;
 		}
 		else {
