@@ -24,6 +24,7 @@ public class Application {
 	private String location; 
 	private String hs;  
 
+	
 	Character a = new Character(); 
 
 	public Application() {
@@ -35,6 +36,12 @@ public class Application {
 		location = ""; 
 		hs = ""; 
 	}
+	
+	//public String nextApplication() {
+		
+		
+		
+	//}
 
 	public void paint(Graphics g) {
 

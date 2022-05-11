@@ -11,7 +11,6 @@ public class Requirement {
 	private boolean c2;
 	private boolean c3;
 	
-	
 	private static DatasetGenerator g = new DatasetGenerator();
 	
 	public Requirement() {
