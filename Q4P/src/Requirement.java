@@ -89,6 +89,10 @@ public class Requirement {
 		
 		return isLocation && isGPA && isDonation;
 	}
+	
+	public boolean correctDecision(Character c) {
+		return correctDecision(c.getLocation(), c.getGpaAsDouble(), c.getDonationAsInt());
+	}
 
 	public String getLoc1() {
 		return loc1;
