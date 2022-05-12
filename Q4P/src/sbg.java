@@ -13,10 +13,11 @@ public class sbg {
 	//add location attributes
 	private Image img; 	
 	private AffineTransform tx;
+	private int rand; 
 
 	public sbg(int x, int y) {
 
-		img = getImage("./imgs/desk_bg.png"); //load the image for Tree
+		img = getImage("./imgs/sbg1.png"); //load the image for Tree
 		tx = AffineTransform.getTranslateInstance(x, y);
 		init(x, y); 				//initialize the location of the image
 									//use your variables
@@ -42,7 +43,10 @@ public class sbg {
 	/* update the picture variable location */
 
 	public void update() {
-
+		rand = (int) (Math.random() * 11); 
+		if(rand == 0) {
+			
+		}
 	}
 
 	public void random() {
