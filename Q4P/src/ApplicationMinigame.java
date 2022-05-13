@@ -2,12 +2,12 @@ import java.util.*;
 
 public class ApplicationMinigame {
 	
-	public int points = 0;
+	public static int points = 0;
 	private int reward = 10;
 	private Timer t = new Timer();
-	private int gameLength = 10000;
+	private int gameLength = 5000;
 	
-	public void runMinigame() {
+	public void runApplication() {
 		
 		TimerTask tt = new TimerTask() {  
 		    public void run() {  
@@ -19,20 +19,24 @@ public class ApplicationMinigame {
 		//call other method
 	}
 	
-	public void gameCompleted(boolean wasCorrect) {
+	public void evaluationMade(boolean wasCorrect) {
 		
 		if(wasCorrect) {
-			points += 10;
+			points += reward;
 		}
+		else {
+			points -= reward;
+		}
+		
 		t.cancel();
 		
 		TimerTask interGameDelay = new TimerTask() {  
 		    public void run() {  
-		    		runMinigame();
+		    	runApplication();
 		    };
 		};	
 		
-		t.schedule(interGameDelay, 1000);
+		t.schedule(interGameDelay, 500); //right or wrong delay
 	}
 	
 	public void gameExit() {
