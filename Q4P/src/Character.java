@@ -97,7 +97,7 @@ public class Character {
 	public int getDonationAsInt() {
 		String temp = getDonation();
 		temp = temp.substring(1).replaceAll(",", ""); //remove $ and ,
-		return Integer.parseInt(temp);
+		return (int) Double.parseDouble(temp);
 	}
 
 	public boolean donationAbove(int threshold) {
