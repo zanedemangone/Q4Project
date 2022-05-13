@@ -23,6 +23,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	//CREATE THE OBJECT (STEP 1)
 	Background bg = new Background(0,0);
 	Application a = new Application(); 
+	ApplicationMinigame b = new ApplicationMinigame(); 
+	//Requirement r = new Requirement(); 
 	
 	//checks which background is showing to make sure that transitions are smooth 
 	boolean desk_check = true; 
@@ -33,6 +35,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean rules_check = false;
 	boolean r_close_check = false; 
 	boolean report_check = false; 
+	boolean interview_check = false; 
 
 
 public static void main(String[] arg) {
@@ -68,10 +71,10 @@ public void paint(Graphics g) {
 	//g.drawRoundRect(60, 260, 780, 450, 30, 30);
 
 	//accept hitbox 
-	//g.drawRoundRect(430, 550, 340, 100, 30, 30);
+	g.drawRoundRect(315, 614, 336, 100, 30, 30);
 
 	//reject hitbox
-	//g.drawRoundRect(822, 550, 340, 100, 30, 30);
+	g.drawRoundRect(708, 614, 336, 100, 30, 30);
 	
 }
 
@@ -140,12 +143,20 @@ public Frame() {
 			report_check = true; 
 		}
 
-		if((arg0.getX() >= 430 && arg0.getX() <= 1162) && (arg0.getY() >= 550 && arg0.getY() <= 650) && report_check == true) {
-			//score for accept goes here 
+		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 714) && report_check == true) {
+			bg.updateToCS();
+			
 		}
 
-		if((arg0.getX() >= 822 && arg0.getX() <= 1162) && (arg0.getY() >= 550 && arg0.getY() <= 650) && report_check == true) {
+		if((arg0.getX() >= 708 && arg0.getX() <= 1044) && (arg0.getY() >= 614 && arg0.getY() <= 714) && report_check == true) {
 			//score for reject goes here 
+
+		}
+		
+		if(interview_check == true){
+			bg.studentBG(a.faceNum());
+			bg.updateToZoom();
+			
 		}
 	}
 	

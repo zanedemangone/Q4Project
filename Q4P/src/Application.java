@@ -24,7 +24,7 @@ public class Application {
 	private String dMoney; 
 	private String location;
 	private String donation; 
-	
+	private int faceNum; 
 	
 	Character a = new Character(); 
 	Color c;
@@ -38,10 +38,12 @@ public class Application {
 		dMoney = a.getDonation(); 
 		location = a.getLocation(); 
 		donation = a.getDonated(); 
-		
-		if(pStatement.length() > 20) {
-			//pStatement = pStatement.substring(0, 20); 
-		}
+		faceNum = a.getFaceNum(); 
+	}
+	
+	public int faceNum(){
+		return faceNum;
+		 
 	}
 
 	public void paint(Graphics g) {
