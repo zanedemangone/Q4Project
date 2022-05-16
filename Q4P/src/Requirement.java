@@ -5,6 +5,7 @@ public class Requirement {
 	private String loc3;
 	private double gpa;
 	private int don;
+	private String donS;
 	private boolean c1;
 	private boolean c2;
 	private boolean c3;
@@ -18,7 +19,8 @@ public class Requirement {
 		loc2 = rC[1]; //is not from, is from
 		loc3 = rC[2]; //is not from, is from
 		gpa =  Double.parseDouble(rC[3]); //higher or lower
-		don = (int) Double.parseDouble(rC[4].substring(1)); //higher or lower
+		donS = rC[4];
+		don = (int) Double.parseDouble(rC[4].replaceAll(",", "").substring(1)); //higher or lower
 		
 		if(rC[5].equals("0")) { //0 for is not from, 1 is from
 			c1=false;
@@ -59,10 +61,10 @@ public class Requirement {
 		}
 		
 		if(c3) {
-			s[2] = "Admit students whose family has contributed more than "+don+".";
+			s[2] = "Admit students whose family has contributed more than "+donS+".";
 		}
 		else {
-			s[2] = "Admit students whose family has contributed less than or equal to "+don+". We don't want repeats of last time.";
+			s[2] = "Admit students whose family has contributed less than or equal to "+donS+". We don't want repeats of last time.";
 		}
 		
 		return s;
