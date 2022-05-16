@@ -11,10 +11,11 @@ public class Background{
 	
 	//add location attributes
 	private Image img; 	
+	private Image img2; 
 	private AffineTransform tx;
-
+	private int faceNum; 
+	
 	public Background(int x, int y) {
-		
 		img = getImage("./imgs/desk_bg.png"); //load the image for Tree
 		tx = AffineTransform.getTranslateInstance(x, y);
 		init(x, y); 				//initialize the location of the image
@@ -82,6 +83,31 @@ public class Background{
 
 	public void updateToReport() {
 		img = getImage("/imgs/report.png"); 
+	}
+	
+	public void studentBG(int faceNum) {
+		switch(faceNum) {
+		case 1: 
+			img2 = getImage("/imgs/sbg1.png"); 
+		case 2: 
+			img2 = getImage("/imgs/sbg2.png"); 
+		case 3:
+			img2 = getImage("/imgs/sbg3.png"); 
+		case 4: 
+			img2 = getImage("/imgs/sbg4.png"); 
+		case 5: 
+			img2 = getImage("/imgs/sbg5.png"); 
+		case 6: 
+			img2 = getImage("/imgs/sbg6.png"); 
+		case 7: 
+			img2 = getImage("/imgs/sbg7.png"); 
+		case 8: 
+			img2 = getImage("/imgs/sbg8.png"); 
+		case 9: 
+			img2 = getImage("/imgs/sbg9.png"); 
+		case 10: 
+			img2 = getImage("/imgs/sbg10.png"); 
+		}
 	}
 
 	private void init(double a, double b) {

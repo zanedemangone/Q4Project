@@ -16,32 +16,56 @@ import java.util.ArrayList;
 
 public class Application {
 
-	private String name; 
-	private String lastName; 
-	private String gpa; 
-	private String pStatement; 
-	private String ec; 
-	private String dMoney; 
-	private String location;
-	private String donation; 
+	public String name; 
+	public String lastName; 
+	public String gpa; 
+	public String pStatement; 
+	public String ec; 
+	public String dMoney; 
+	public String location;
+	public String donation; 
+	public int faceNum; 
 	
-	
-	Character a = new Character(); 
+	public ArrayList<Character> character = new ArrayList<Character>();
+	public int characterSelect;
 	Color c;
 
 	public Application() {
-		name = a.getFirstName(); 
-		lastName = a.getLastName(); 
-		gpa = a.getGpa(); 
-		pStatement = a.getPersonalStatement(); 
-		ec = a.getExtracurricular(); 
-		dMoney = a.getDonation(); 
-		location = a.getLocation(); 
-		donation = a.getDonated(); 
-		
-		if(pStatement.length() > 20) {
-			//pStatement = pStatement.substring(0, 20); 
+		for(int i = 0; i < 100; i ++) {
+			character.add(new Character());
 		}
+		characterSelect = (int)(Math.random()*character.size());
+		name = character.get(characterSelect).getFirstName(); 
+		lastName = character.get(characterSelect).getLastName(); 
+		gpa = character.get(characterSelect).getGpa(); 
+		pStatement = character.get(characterSelect).getPersonalStatement(); 
+		ec = character.get(characterSelect).getExtracurricular(); 
+		dMoney = character.get(characterSelect).getDonation(); 
+		location = character.get(characterSelect).getLocation(); 
+		donation = character.get(characterSelect).getDonated(); 
+		faceNum = character.get(characterSelect).getFaceNum(); 
+	}
+	
+	public int faceNum(){
+		return faceNum;
+		 
+	}
+	
+	public void change() {
+		int notNum = characterSelect;
+		while(characterSelect == notNum) {
+			characterSelect = (int)(Math.random()*character.size());
+		}
+		characterSelect = (int)(Math.random()*character.size());
+		name = character.get(characterSelect).getFirstName(); 
+		lastName = character.get(characterSelect).getLastName(); 
+		gpa = character.get(characterSelect).getGpa(); 
+		pStatement = character.get(characterSelect).getPersonalStatement(); 
+		ec = character.get(characterSelect).getExtracurricular(); 
+		dMoney = character.get(characterSelect).getDonation(); 
+		location = character.get(characterSelect).getLocation(); 
+		donation = character.get(characterSelect).getDonated(); 
+		faceNum = character.get(characterSelect).getFaceNum(); 
 	}
 
 	public void paint(Graphics g) {
@@ -61,7 +85,16 @@ public class Application {
 		
 		//ec
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-		g.drawString(ec, 1020, 240);
+		//g.drawString(ec, 1020, 240);
+		if(ec.length() < 34) {
+			g.drawString(ec, 1020, 240);
+		}else {
+			g.drawString(ec.substring(0, 34), 1020, 240);
+			g.drawString(ec.substring(34), 1020, 260); 
+		}
+		
+		//item donated 
+		g.drawString(donation, 640, 386);
 		
 		//dMoney
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
@@ -70,9 +103,7 @@ public class Application {
 		//location
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 40));
 		g.drawString(location, 570, 256); 
-		
-		//item donated 
-		g.drawString(donation, 640, 386);
+
 	}
 
 }
