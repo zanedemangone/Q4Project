@@ -24,7 +24,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Background bg = new Background(0,0);
 	Application a = new Application(); 
 	ApplicationMinigame b = new ApplicationMinigame(); 
-	//Requirement r = new Requirement(); 
+	Requirement r = new Requirement(); 
 	
 	//checks which background is showing to make sure that transitions are smooth 
 	boolean desk_check = true; 
@@ -36,6 +36,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean r_close_check = false; 
 	boolean report_check = false; 
 	boolean interview_check = false; 
+	
+	boolean score_check; 
 
 
 public static void main(String[] arg) {
@@ -144,13 +146,18 @@ public Frame() {
 		}
 
 		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 714) && report_check == true) {
-			bg.updateToCS();
-			
+			a.change();
+			//score_Check = r.correctDecision(a.location, a.gpa, a.dMoney); 
+			b.gameCompleted(score_check); 
+			System.out.println("Accept");			
 		}
 
 		if((arg0.getX() >= 708 && arg0.getX() <= 1044) && (arg0.getY() >= 614 && arg0.getY() <= 714) && report_check == true) {
 			//score for reject goes here 
-
+			a.change();
+			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), Integer.parseInt(a.dMoney)); 
+			b.gameCompleted(score_check); 
+			System.out.println("Reject");
 		}
 		
 		if(interview_check == true){
