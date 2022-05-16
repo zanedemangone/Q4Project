@@ -155,7 +155,7 @@ public Frame() {
 		if((arg0.getX() >= 708 && arg0.getX() <= 1044) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
 			//score for reject goes here 
 			a.change();
-			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), Integer.parseInt(a.dMoney)); 
+			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1))); 
 			b.evaluationMade(score_check); 
 			System.out.println("Reject");
 		}
