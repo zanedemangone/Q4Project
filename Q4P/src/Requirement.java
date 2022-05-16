@@ -1,5 +1,3 @@
-import static java.lang.Integer.valueOf;
-
 public class Requirement {
 	
 	private String loc1;
@@ -20,7 +18,7 @@ public class Requirement {
 		loc2 = rC[1]; //is not from, is from
 		loc3 = rC[2]; //is not from, is from
 		gpa =  Double.parseDouble(rC[3]); //higher or lower
-		don = valueOf(rC[4]); //higher or lower
+		don = (int) Double.parseDouble(rC[4].substring(1)); //higher or lower
 		
 		if(rC[5].equals("0")) { //0 for is not from, 1 is from
 			c1=false;
