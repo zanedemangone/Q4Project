@@ -6,7 +6,7 @@ public class ApplicationMinigame {
 	public static int points = 0;
 	private int reward = 10;
 	//changed it to 60 seconds per round
-	public int gameLength = 3600;
+	public int gameLength = 2700;
 	private int count; 
 	
 	Timer t = new Timer();
