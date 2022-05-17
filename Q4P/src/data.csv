@@ -1,6 +1,6 @@
 firstNames,lastNames,location,personalStatements,gpa,extracurriculars,donation,donated
 Oliver,Smith,Alabama,I love science.,5.01,Science Club President,$0.00 ,Bench 
-Elijah,Johnson,Alaska,I set a tree on fire!,4.99,Yamford Simp Club President ,$0.00 ,Private yacht 
+Elijah,Johnson,Alaska,I set a tree on fire!,4.99,Did reseach at Yamford,$0.00 ,Private yacht 
 William,Williams,Arizona,I was born at a young age.,4.98,Math Club President ,$0.00 ,Garden 
 James,Brown,Arkansas,I really put my whole half hearted effort in my application.,4.97,Physics Club President ,$0.00 ,Hospital  building
 Benjamin,Jones,California,My dad is the CEO of CollegeBoard.,4.96,McDonalds Regular ,$0.00 ,Shrub 
@@ -19,14 +19,14 @@ Sebastian,Taylor,Kentucky,I have your children held hostage.,4.84,President of t
 Mateo,Moore,Louisiana,amonguus……,4.83,President of the Programming Club ,$0.00 ,Nothing
 Jack,Jackson,Maine,?,4.82,President of the Human Rights Club ,$0.00 ,Nothing
 Owen,Martin,Maryland,9+11 = 21,4.81,President of the Money Club,$0.00 ,Nothing
-Theodore,Lee,Massachusetts,I cured cancer.,4.8,President of the DN Club ,$0.00 ,Nothing
-Aiden,Perez,Michigan,I am diagnosed with sugma.,4.79,Volunteered for 1000 hours ,$0.00 ,Nothing
+Theodore,Lee,Massachusetts,I cured cancer.,4.8,President of the Anime Club ,$0.00 ,Nothing
+Aiden,Perez,Michigan,I am diagnosed with sugma.,4.79,"Volunteered for 1,000 hours ",$0.00 ,Nothing
 Samuel,Thompson,Minnesota,L + Ratio + Didn't Ask,4.78,Volunteered for 100 hours ,$0.00 ,Nothing
 Joseph,White,Mississippi,I have your IP.,4.77,Volunteered for 10 hours ,$0.00 ,Nothing
 John,Harris,Missouri,123.547.1283,4.76,Volunteered for 1 hour ,$0.00 ,Nothing
 David,Sanchez,Montana,Ben?,4.75,President of the Science Olympiad Club ,$0.00 ,Nothing
 Wyatt,Clark,Nebraska,Self taught millionaire.,4.74,President of the Cubing Club ,$0.00 ,Nothing
-Matthew,Ramirez,Nevada,Started a non profit.,4.73,President of the Edging Club ,$0.00 ,Nothing
+Matthew,Ramirez,Nevada,Started a non profit.,4.73,President of the Yamford Club ,$0.00 ,Nothing
 Luke,Lewis,New Hampshire,I have my sussy powers awakened.,4.72,President of the Computer Science Club,$0.00 ,Nothing
 Asher,Robinson,New Jersey,I love gender studies!,4.71,9 Time Olympics Gold Winner ,$0.00 ,Nothing
 Carter,Walker,New Mexico,"You don't understand, my parents will kill me!",4.7,9 Time Olympics Silver Winner ,$0.00 ,Nothing
@@ -40,7 +40,7 @@ Lincoln,Nguyen,Pennsylvania,I am a natural born genius that was admitted to the 
 Anthony,Hill,Rhode Island,I love this school so much please let me in please let me in,4.62,Tennis,$0.00 ,Nothing
 Hudson,Flores,South Carolina,You know he is watching right? ,4.61,Volleyball Team Captain ,$0.00 ,Nothing
 Dylan,Green,South Dakota,I predicted COVID. While asleep.,4.6,Volleyball ,$0.00 ,Nothing
-Ezra,Adams,Tennessee,I'm a proud NFT owner and one of the presidents of the BAYC.,4.59,((This student has been indicted with academic dishonesty )),$0.00 ,Nothing
+Ezra,Adams,Tennessee,I'm a proud NFT owner and one of the presidents of the BAYC.,4.59,This student has been indicted with academic dishonesty,$0.00 ,Nothing
 Thomas,Nelson,Texas,I have so much Yamford merch!,4.58,President of the Communism Club ,$0.00 ,Nothing
 Charles,Baker,Utah,My dad donated to you!!!,4.57,President of the E-Sports Club ,$0.00 ,Nothing
 Christopher,Hall,Vermont,I am a master in CBT (Cadet Basic Training) ,4.56,Attended Mathcircle ,$0.00 ,Nothing
@@ -88,7 +88,7 @@ Dominic,Bennett,,I have been in the varsity baseball team since birth. Team capt
 Austin,Gray,,I was born in the Yamford hospital.,4.14,Lab research technician ,$0.00 ,Nothing
 Everett,Mendoza,,I am a famous TikTok influencer.,4.13,Cheerleading ,$0.00 ,Nothing
 Brooks,Ruiz,,I am a famous Instagram Influencer.,4.12,Dance ,$0.00 ,Nothing
-Xavier,Hughes,,I have a Snapchat streak of 1000!!!,4.11,Was awarded the purple heart for braving the war in Vietnam ,$0.00 ,Nothing
+Xavier,Hughes,,I have a Snapchat streak of 1000!!!,4.11,Was awarded the purple heart for braving the war in Vietnam from their couch,$0.00 ,Nothing
 Kai,Price,,We're besties right? ,4.1,Goes to a camp every summer ,$0.00 ,Nothing
 Jose,Alvarez,,I'm an active user on r/wsb.,4.09,Goes to the beach every weekend ,$0.00 ,Nothing
 Parker,Castillo,,I am a proud cryptobro!,4.08,Climbed to the top of the Eiffel Tower ,$0.00 ,Nothing
@@ -98,7 +98,7 @@ Wesley,Myers,,I have to feed my dog.,4.05,Was a TA for the Physics Teacher ,$0.0
 Kayden,Long,,I have to feed my cat.,4.04,Was a TA for the English Teacher ,$0.00 ,Nothing
 Silas,Ross,,I have crippling depression.,4.03,Was a TA for the Math Teacher ,$0.00 ,Nothing
 Bennett,Foster,,I have crippling anxiety.,4.02,Was a TA for the Biology Teacher ,$0.00 ,Nothing
-Declan,Jimenez,,I have straight A's.,4.01,Knows CPR ,$0.00 ,Nothing
+Declan,Jimenez,,I have straight A's.,4.01,"Knows CPR, 200% mortality rate",$0.00 ,Nothing
 Waylon,Powell,,I have saved children from multiple flaming buildings.,4,Has performed multiple successful surgeries ,$0.00 ,Nothing
 Weston,Jenkins,,I love sports!,3.99,Interned for a vet ,$0.00 ,Nothing
 Evan,Perry,,Yamforddd!,3.98,Interned for the mayor ,$0.00 ,Nothing
@@ -111,7 +111,7 @@ Brayden,Henderson,,I am a very leader student!,3.92,Has won a pie eating competi
 Gael,Barnes,,I am not a follower.,3.91,Manages a communual garden ,$0.00 ,Nothing
 Rowan,Gonzales,,You won't regret it.,3.9,Has created several mediocre start ups ,$0.00 ,Nothing
 Harrison,Fisher,,I have run several people over with my van.,3.89,Has started many (BS) non profits ,$0.00 ,Nothing
-Bryson,Vasquez,,There are 10 children in my basement.,3.88,Has pissed on Maraget Thatcher's grave ,$0.00 ,Nothing
+Bryson,Vasquez,,There are 10 children in my basement.,3.88,Has urinated on Maraget Thatcher's grave ,$0.00 ,Nothing
 Sawyer,Simmons,,I am religious in the sense that I am a good student. Only on weekdays.,3.87,Scored a 1610 on the SAT,$0.00 ,Nothing
 Amir,Romero,,I fart on children. Three today already.,3.86,Scored a 37 on the ACT,$0.00 ,Nothing
 Kingston,Jordan,,In my free time I enjoy staring at your home page.,3.85,Scored a 0 on the SAT,$0.00 ,Nothing
@@ -125,11 +125,11 @@ Diego,Wallace,,I will lick the floors clean if I am admitted.,3.78,Spends 25 hou
 Nathaniel,Moreno,,"I have suffered so much for Yamford, you'd better let me in! ",3.77,Spends 1 minute on League of Legends yearly ,$0.00 ,Nothing
 Legend,West,,I am an international student with a compelling and touching story that needs financial aid. ,3.76,Knows your IP address,$0.00 ,Nothing
 Jonah,Cole,,I have 2 children.,3.75,Knows your home address,$0.00 ,Nothing
-River,Hayes,,This is my 10th gap year!!! ,3.74,Square Root Club Chairperson,$0.00 ,Nothing
-Tyler,Bryant,,"It's ok if you reject me, I won't be too sad… ",3.73,,$0.00 ,Nothing
-Cole,Herrera,,I'm proud of my potato garden.,3.72,,$0.00 ,Nothing
-Braxton,Gibson,,"My life is like a burrito: a healthy amount of fitness, studying, and art wrapped in the love I have for my friends and family.",3.71,,$0.00 ,Nothing
-George,Ellis,,I know Biden's last name.,3.7,,$0.00 ,Nothing
+River,Hayes,,This is my 10th gap year!!! ,3.74,President of the Square Root Club,$0.00 ,Nothing
+Tyler,Bryant,,"It's ok if you reject me, I won't be too sad… ",3.73,President of the Rowing Team,$0.00 ,Nothing
+Cole,Herrera,,I'm proud of my potato garden.,3.72,"Has 10,000 followers on Instagram",$0.00 ,Nothing
+Braxton,Gibson,,"My life is like a burrito: a healthy amount of fitness, studying, and art wrapped in the love I have for my friends and family.",3.71,"Has 100,000 followers on Twitter",$0.00 ,Nothing
+George,Ellis,,I know Biden's last name.,3.7,"Has 10,000,000 followers on TikTok",$0.00 ,Nothing
 Milo,Tran,,I know Obama's last name.,3.69,,$0.00 ,Nothing
 Zachary,Medina,,I seen unspeakable things.,3.68,,$0.00 ,Nothing
 Ashton,Aguilar,,I pissed on Margaret Thatcher's grave!,3.67,,$0.00 ,Nothing
@@ -139,7 +139,7 @@ Kaiden,Ford,,I have ratio'd Elon Musk on twitter.com.,3.64,,$0.00 ,Nothing
 Adriel,Castro,,I have several hit tweets on twitter.,3.63,,$0.00 ,Nothing
 Gavin,Marshall,,I hate Twitter.com.,3.62,,$0.00 ,Nothing
 Bentley,Owens,,I have climbed Mount Everest.,3.61,,$0.00 ,Nothing
-Calvin,Harrison,,I am the 1000000000th child born.,3.6,,$0.00 ,Nothing
+Calvin,Harrison,,"I am the 1,000,000,000th child born.",3.6,,$0.00 ,Nothing
 Zion,Fernandez,,I am a polyglot.,3.59,,$0.00 ,Nothing
 Juan,Mcdonald,,I am fluent in Pig Latin.,3.58,,$0.00 ,Nothing
 Maxwell,Woods,,"I am fluent in C++, C+, and C.",3.57,,$0.00 ,Nothing
@@ -188,7 +188,7 @@ Xander,Garza,,I hate college board! ,3.15,,$0.00 ,Nothing
 Miguel,Daniels,,I hate you! ,3.14,,$0.00 ,Nothing
 Atlas,Ferguson,,I have been to jail multiple times!,3.13,,$0.00 ,Nothing
 Messiah,Nichols,,I can beat you in chess!,3.12,,$0.00 ,Nothing
-Barrett,Stephens,,I have taken 112349 AP classes.,3.11,,$0.00 ,Nothing
+Barrett,Stephens,,"I have taken 112,349 AP classes. Twelve more in my sleep.",3.11,,$0.00 ,Nothing
 Tucker,Soto,,I am a master at English.,3.1,,$0.00 ,Nothing
 Timothy,Weaver,,I lead several clubs.,3.09,,$0.00 ,Nothing
 Alan,Ryan,,I am an expert at formatting in Word.,3.08,,$0.00 ,Nothing
@@ -200,7 +200,7 @@ Ace,Kelley,,Oranges are my favorite fruit!,3.03,,$0.00 ,Nothing
 Victor,Spencer,,Yamford colors are the best.,3.02,,$0.00 ,Nothing
 Abraham,Hawkins,,He is watching.,3.01,,$0.00 ,Nothing
 Nicolas,Arnold,,Make sure you're doing your work properly!,3,,$0.00 ,Nothing
-Jesse,Pierce,,,2.99,,$0.00 ,Nothing
+Jesse,Pierce,,Yamie knows where you sleep!,2.99,,$0.00 ,Nothing
 Charlie,Vazquez,,,2.98,,$0.00 ,Nothing
 Patrick,Hansen,,,2.97,,$0.00 ,Nothing
 Walker,Peters,,,2.96,,$0.00 ,Nothing
