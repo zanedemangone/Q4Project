@@ -50,13 +50,15 @@ public void paint(Graphics g) {
 	super.paintComponent(g);
 	bg.paint(g); 
 
-	if(report_check == true) {
-
+	if(report_check == true && b.gameLength >= 0) {
 		b.run();
 		a.paint(g);
-		g.drawString("You have: " + Integer.toString(b.gameLength/60) + " seconds left", 800, 115); 
+		g.drawString("You have: " + Integer.toString(b.gameLength/45) + " seconds left", 800, 115); 
 	}else {
-		b.gameLength = 3600; 
+		bg.updateToAO();
+		b.gameLength = 2700; 
+		ao_check = true; 
+		report_check = false; 
 	}
 	
 	if(report_check == true && ao_check == true) {
@@ -75,17 +77,17 @@ public void paint(Graphics g) {
 				int length = s.length();
 				while(length > 0) {
 					if(length > 43) {
-						g.drawString(s.substring(0, 43), 1080, 638 + 10 * count);
+						g.drawString(s.substring(0, 43), 1080, 638 + 12 * count);
 						s = s.substring(43);
 						length -= 43;
 					}else {
-						g.drawString(s.substring(0), 1080, 638 + 10 * count);
+						g.drawString(s.substring(0), 1080, 638 + 12 * count);
 						length = 0;
 					}
 					count ++;
 				}
 			}else {
-				g.drawString(s, 1080, 638 + 8 * count);
+				g.drawString(s, 1080, 638 + 12 * count);
 			}
 			count ++;
 		}
@@ -165,7 +167,6 @@ public Frame() {
 
 		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
 			a.change();
-			a.change();
 			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1))); 
 			b.evaluationMade(score_check); 
 			System.out.println("Accept");
@@ -179,6 +180,12 @@ public Frame() {
 			b.evaluationMade(score_check); 
 			System.out.println("Reject");
 			b.evaluationMade(r.correctDecision(a.character.get(a.characterSelect))); 
+		}
+		
+		if(b.gameLength == 0) {
+			bg.updateToAO();
+			ao_check = true; 
+			report_check = false; 
 		}
 		
 		if(interview_check == true){
