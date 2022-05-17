@@ -1,22 +1,28 @@
-import java.util.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ApplicationMinigame {
 	
 	public static int points = 0;
 	private int reward = 10;
-	private Timer t = new Timer();
-	private int gameLength = 5000;
+	//changed it to 60 seconds per round
+	public int gameLength = 3600;
+	private int count; 
 	
-	public void runApplication() {
-		
-		TimerTask tt = new TimerTask() {  
-		    public void run() {  
-		    		System.out.println("Time's up!");    
-		    		//call interview game logic
-		    };
-		};	
-		t.schedule(tt, gameLength);
-		//call other method
+	Timer t = new Timer();
+	TimerTask tt = new TimerTask() {
+		public void run() {
+			gameLength--;	
+			System.out.println(gameLength);
+		}
+	};
+	
+	public void run() {
+		gameLength--; 
+	}
+	public void start() {
+		//timer runs in milliseconds 
+		t.scheduleAtFixedRate(tt, 0, gameLength*1000);
 	}
 	
 	public void evaluationMade(boolean wasCorrect) {
@@ -27,21 +33,10 @@ public class ApplicationMinigame {
 		else {
 			points -= reward;
 		}
-		
-		t.cancel();
-		
-		TimerTask interGameDelay = new TimerTask() {  
-		    public void run() {  
-		    	runApplication();
-		    };
-		};	
-		
-		t.schedule(interGameDelay, 500); //right or wrong delay
 	}
 	
 	public void gameExit() {
 		t.cancel();
-		//safe to replace this panel since nothing will be running. call runMinigame again to begin the cycle
 	}
 	
 }
