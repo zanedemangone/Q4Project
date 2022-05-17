@@ -28,8 +28,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean control = true, parseListPaint = false;
 	String[] parseList = r.ParsedList();
 	
-	Color c; 
-	
 	//checks which background is showing to make sure that transitions are smooth 
 	boolean desk_check = true; 
 	boolean gmail_check = false; 
@@ -51,12 +49,12 @@ public static void main(String[] arg) {
 public void paint(Graphics g) {
 	super.paintComponent(g);
 	bg.paint(g); 
-	c = new Color(255, 255, 255); 
-	g.setColor(c);
+
 	if(report_check == true) {
+
 		b.run();
 		a.paint(g);
-		g.drawString("You have: " + Integer.toString(b.gameLength/60) + " seconds left", 750, 100); 
+		g.drawString("You have: " + Integer.toString(b.gameLength/60) + " seconds left", 800, 115); 
 	}else {
 		b.gameLength = 3600; 
 	}
@@ -64,39 +62,13 @@ public void paint(Graphics g) {
 	if(report_check == true && ao_check == true) {
 		g.drawString(Integer.toString(b.points), 1200, 400);
 	}
-	//screen hitbox
-	//g.drawRect(100, 180, 710, 360);
-
-	//chrome/login hitbox 
-	//g.drawRoundRect(154, 120, 70, 50, 20, 20);
-
-	//gmail hitbox
-	//g.drawRoundRect(156, 210, 65, 65, 20, 20);
-
-	//login hitbox
-	//g.drawRoundRect(1200, 75, 150, 42, 20, 20);
-
-	//rules hitbox 
-	//g.drawRoundRect(1150, 140, 180, 300, 20, 20);
-
-	//rules close up hitbox
-	//g.drawRoundRect(620, 100, 400, 580, 20, 20);
-
-	//application hitbox 
-	//g.drawRoundRect(60, 260, 780, 450, 30, 30);
-
-	//accept hitbox 
-	//g.drawRoundRect(315, 614, 336, 100, 30, 30);
-
-	//reject hitbox
-	//g.drawRoundRect(708, 614, 336, 100, 30, 30);
 	
 	if(b.gameLength == 0) {
 		b.gameExit(); 
 	}
 	
 	g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
-	if(parseListPaint) {
+	if(parseListPaint && report_check == true) {
 		int count = 0;;
 		for(String s : parseList) {
 			if(s.length() > 30) {
@@ -193,9 +165,10 @@ public Frame() {
 
 		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
 			a.change();
-			//score_Check = r.correctDecision(a.location, a.gpa, a.dMoney); 
-			//b.gameCompleted(score_check); 
-			System.out.println("Accept");	
+			a.change();
+			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1))); 
+			b.evaluationMade(score_check); 
+			System.out.println("Accept");
 			b.evaluationMade(r.correctDecision(a.character.get(a.characterSelect))); 
 		}
 

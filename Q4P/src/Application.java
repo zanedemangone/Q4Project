@@ -28,7 +28,6 @@ public class Application {
 	
 	public ArrayList<Character> character = new ArrayList<Character>();
 	public int characterSelect;
-	Color c;
 
 	public Application() {
 		for(int i = 0; i < 100; i ++) {
@@ -68,9 +67,8 @@ public class Application {
 		faceNum = character.get(characterSelect).getFaceNum(); 
 	}
 
-	public void paint(Graphics g) {
-		c = new Color(128, 217, 255); 
-		g.setColor(c);
+	public void paint(Graphics g) { 
+		g.setColor(Color.BLACK);
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 40)); 
 		
 		//name 
