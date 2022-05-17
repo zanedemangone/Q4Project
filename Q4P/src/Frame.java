@@ -54,7 +54,8 @@ public void paint(Graphics g) {
 		b.run();
 		a.paint(g);
 		g.drawString("You have: " + Integer.toString(b.gameLength/45) + " seconds left", 800, 115); 
-	}else {
+	}
+	if(b.gameLength == 0) {
 		bg.updateToAO();
 		b.gameLength = 2700; 
 		ao_check = true; 
@@ -65,9 +66,6 @@ public void paint(Graphics g) {
 		g.drawString(Integer.toString(b.points), 1200, 400);
 	}
 	
-	if(b.gameLength == 0) {
-		b.gameExit(); 
-	}
 	
 	g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
 	if(parseListPaint && report_check == true) {
@@ -180,12 +178,6 @@ public Frame() {
 			b.evaluationMade(score_check); 
 			System.out.println("Reject");
 			b.evaluationMade(r.correctDecision(a.character.get(a.characterSelect))); 
-		}
-		
-		if(b.gameLength == 0) {
-			bg.updateToAO();
-			ao_check = true; 
-			report_check = false; 
 		}
 		
 		if(interview_check == true){
