@@ -46,8 +46,7 @@ public class Application {
 	}
 	
 	public int faceNum(){
-		return faceNum;
-		 
+		return faceNum; 
 	}
 	
 	public void change() {

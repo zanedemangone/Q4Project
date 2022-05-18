@@ -40,7 +40,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean interview_check = false; 
 	boolean score_check; 
 	
-	int req = 10; 
+	int req = 200; 
 
 
 public static void main(String[] arg) {
@@ -177,7 +177,7 @@ public Frame() {
 			ao_check = false; 
 			report_check = true;
 			parseListPaint = true;
-			req+=10; 
+			req+=50; 
 		}
 
 		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
@@ -268,11 +268,11 @@ public Frame() {
 				r_close_check = false;
 			}
 
-			if (report_check == true) {
+			/*if (report_check == true && b.gameLength == 0) {
 				bg.updateToAO();
 				ao_check = true;
 				report_check = false;
-			}
+			}*/
 		}
 		//System.out.println(arg0.getKeyCode());
 	}
