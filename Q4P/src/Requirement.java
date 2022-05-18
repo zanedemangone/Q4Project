@@ -90,15 +90,30 @@ public class Requirement {
 		boolean isGPA = false;
 		boolean isDonation = false;
 		
-		if(((l.equals(loc1) || l.equals(loc2) || l.equals(loc3)) && c1) || ((!l.equals(loc1) && !l.equals(loc2) && !l.equals(loc3)) && !c1)) {
+		if(c1) { //LOCATION
+			if(l.equals(loc1) || l.equals(loc2) || l.equals(loc3)) {
+				isLocation = true;
+			}
+		}
+		else if(!(l.equals(loc1) || l.equals(loc2) || l.equals(loc3))) {
 			isLocation = true;
 		}
 		
-		if((c2 && gp>gpa) || (!c2 && gp<=gpa)) {
+		if(c2) { //GPA
+			if(gp>gpa) {
+				isGPA = true;
+			}
+		}
+		else if(gp<=gpa) {
 			isGPA = true;
 		}
 		
-		if((c3 && d>don) || (!c3 && d<=don)) {
+		if(c3) { //DONATION
+			if(d>don) {
+				isDonation=true;
+			}
+		}
+		else if(d<=don) {
 			isDonation = true;
 		}
 		

@@ -54,7 +54,9 @@ public void paint(Graphics g) {
 		b.run();
 		a.paint(g);
 		g.drawString("You have: " + Integer.toString(b.gameLength/45) + " seconds left", 800, 115); 
+		g.drawString(Integer.toString(b.points), 200, 100);
 	}
+	
 	if(b.gameLength == 0) {
 		bg.updateToAO();
 		b.gameLength = 2700; 
@@ -90,6 +92,8 @@ public void paint(Graphics g) {
 			count ++;
 		}
 	}
+	
+	//System.out.println(b.points);
 	
 }
 
@@ -164,20 +168,23 @@ public Frame() {
 		}
 
 		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
-			a.change();
+			
+			System.out.println(a.location + " " + Double.parseDouble(a.gpa) + " " + (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1)));
+			
 			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1))); 
 			b.evaluationMade(score_check); 
-			System.out.println("Accept");
-			b.evaluationMade(r.correctDecision(a.character.get(a.characterSelect))); 
+			System.out.println("Accept " + score_check);
+			a.change();
 		}
 
 		if((arg0.getX() >= 708 && arg0.getX() <= 1044) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
-			//score for reject goes here 
-			a.change();
+			
+			System.out.println(a.location + " " + Double.parseDouble(a.gpa) + " " + (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1)));
+			
 			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1))); 
 			b.evaluationMade(score_check); 
-			System.out.println("Reject");
-			b.evaluationMade(r.correctDecision(a.character.get(a.characterSelect))); 
+			System.out.println("Reject " + score_check);
+			a.change();
 		}
 		
 		if(interview_check == true){
@@ -199,7 +206,7 @@ public Frame() {
 	
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		System.out.println(arg0.getX() + "," + arg0.getY());
+		//System.out.println(arg0.getX() + "," + arg0.getY());
 	}
 	
 	@Override
@@ -254,7 +261,7 @@ public Frame() {
 				report_check = false;
 			}
 		}
-		System.out.println(arg0.getKeyCode());
+		//System.out.println(arg0.getKeyCode());
 	}
 	
 	@Override
