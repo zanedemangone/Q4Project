@@ -186,12 +186,6 @@ public Frame() {
 			System.out.println("Reject " + score_check);
 			a.change();
 		}
-		
-		if(interview_check == true){
-			bg.studentBG(a.faceNum());
-			bg.updateToZoom();
-			
-		}
 	}
 	
 	@Override

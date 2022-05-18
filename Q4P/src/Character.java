@@ -46,13 +46,6 @@ public class Character {
 		return location;
 	}
 
-	public boolean locationEquals(String target) {
-		if(getLocation().equals(target)) {
-			return true;
-		}
-		return false;
-	}
-
 	public String getPersonalStatement() {
 		return personalStatement;
 	}
@@ -65,29 +58,9 @@ public class Character {
 		return Double.parseDouble(gpa);
 	}
 
-	public boolean gpaAbove(double threshold) {
-		if(getGpaAsDouble()>=threshold) {
-			return true;
-		}
-		return false;
-	}
-
-	public boolean gpaBelow(double threshold) {
-		if(getGpaAsDouble()<threshold) {
-			return true;
-		}
-		return false;
-	}
 
 	public String getExtracurricular() {
 		return extracurricular;
-	}
-
-	public boolean extracurricularEquals(String target) {
-		if(getExtracurricular().equals(target)) {
-			return true;
-		}
-		return false;
 	}
 
 	public String getDonation() {
@@ -98,20 +71,6 @@ public class Character {
 		String temp = getDonation();
 		temp = temp.substring(1).replaceAll(",", ""); //remove $ and ,
 		return (int) Double.parseDouble(temp);
-	}
-
-	public boolean donationAbove(int threshold) {
-		if(getDonationAsInt()>=threshold) {
-			return true;
-		}
-		return false;
-	}
-
-	public boolean donationBelow(int threshold) {
-		if(getDonationAsInt()<threshold) {
-			return true;
-		}
-		return false;
 	}
 
 	public String getDonated() {

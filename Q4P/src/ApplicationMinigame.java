@@ -20,10 +20,6 @@ public class ApplicationMinigame {
 	public void run() {
 		gameLength--; 
 	}
-	public void start() {
-		//timer runs in milliseconds 
-		t.scheduleAtFixedRate(tt, 0, gameLength*1000);
-	}
 	
 	public void evaluationMade(boolean wasCorrect, boolean accepting) {
 		if(accepting) {
@@ -43,10 +39,6 @@ public class ApplicationMinigame {
 				points -= reward;
 			}
 		}
-	}
-	
-	public void gameExit() {
-		t.cancel();
 	}
 	
 }
