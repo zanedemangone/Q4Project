@@ -26,11 +26,10 @@ public class ApplicationMinigame {
 	}
 	
 	public void evaluationMade(boolean wasCorrect) {
-		
 		if(wasCorrect) {
 			points += reward;
 		}
-		else {
+		else if(wasCorrect == false) {
 			points -= reward;
 		}
 	}
