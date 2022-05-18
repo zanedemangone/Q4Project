@@ -54,7 +54,9 @@ public void paint(Graphics g) {
 		b.run();
 		a.paint(g);
 		g.drawString("You have: " + Integer.toString(b.gameLength/45) + " seconds left", 800, 115); 
+		g.drawString(Integer.toString(b.points), 200, 100);
 	}
+	
 	if(b.gameLength == 0) {
 		bg.updateToAO();
 		b.gameLength = 2700; 
@@ -90,6 +92,8 @@ public void paint(Graphics g) {
 			count ++;
 		}
 	}
+	
+	System.out.println(b.points);
 	
 }
 
