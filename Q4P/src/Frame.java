@@ -54,7 +54,17 @@ public void paint(Graphics g) {
 		b.run();
 		a.paint(g);
 		g.drawString("You have: " + Integer.toString(b.gameLength/45) + " seconds left", 800, 115); 
-		g.drawString(Integer.toString(b.points), 200, 100);
+		g.drawString(Integer.toString(b.points), 150, 700);
+	}
+	
+	if(ao_check == true) {
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+		g.drawString(Integer.toString(b.points), 1300, 177);
+	}
+	
+	if(report_check == false) {
+		b.gameLength = 2700; 
+		a.change();
 	}
 	
 	if(b.gameLength == 0) {
@@ -206,7 +216,7 @@ public Frame() {
 	
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		//System.out.println(arg0.getX() + "," + arg0.getY());
+		System.out.println(arg0.getX() + "," + arg0.getY());
 	}
 	
 	@Override
