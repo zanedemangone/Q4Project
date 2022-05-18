@@ -116,7 +116,7 @@ public class Requirement {
 		else if(d<=don) {
 			isDonation = true;
 		}
-		
+		System.out.println(isLocation + " " + isGPA + " " + isDonation);
 		return isLocation && isGPA && isDonation;
 	}
 	

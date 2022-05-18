@@ -172,7 +172,7 @@ public Frame() {
 			System.out.println(a.location + " " + Double.parseDouble(a.gpa) + " " + (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1)));
 			
 			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1))); 
-			b.evaluationMade(score_check); 
+			b.evaluationMade(score_check, true); 
 			System.out.println("Accept " + score_check);
 			a.change();
 		}
@@ -182,7 +182,7 @@ public Frame() {
 			System.out.println(a.location + " " + Double.parseDouble(a.gpa) + " " + (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1)));
 			
 			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1))); 
-			b.evaluationMade(score_check); 
+			b.evaluationMade(score_check, false); 
 			System.out.println("Reject " + score_check);
 			a.change();
 		}
