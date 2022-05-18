@@ -38,8 +38,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean r_close_check = false; 
 	boolean report_check = false; 
 	boolean interview_check = false; 
-	
 	boolean score_check; 
+	
+	int req = 10; 
 
 
 public static void main(String[] arg) {
@@ -54,7 +55,7 @@ public void paint(Graphics g) {
 		b.run();
 		a.paint(g);
 		g.drawString("You have: " + Integer.toString(b.gameLength/45) + " seconds left", 800, 115); 
-		g.drawString(Integer.toString(b.points), 150, 700);
+		g.drawString("Score: " + Integer.toString(b.points), 100, 700);
 	}
 	
 	if(ao_check == true) {
@@ -101,6 +102,7 @@ public void paint(Graphics g) {
 			}
 			count ++;
 		}
+		g.drawString("Make sure to earn more than " + Integer.toString(req) + " points", 1080, 760);
 	}
 	
 	//System.out.println(b.points);
@@ -175,6 +177,7 @@ public Frame() {
 			ao_check = false; 
 			report_check = true;
 			parseListPaint = true;
+			req+=10; 
 		}
 
 		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
@@ -182,7 +185,7 @@ public Frame() {
 			System.out.println(a.location + " " + Double.parseDouble(a.gpa) + " " + (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1)));
 			
 			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1))); 
-			b.evaluationMade(score_check); 
+			b.evaluationMade(score_check, true); 
 			System.out.println("Accept " + score_check);
 			a.change();
 		}
@@ -192,7 +195,7 @@ public Frame() {
 			System.out.println(a.location + " " + Double.parseDouble(a.gpa) + " " + (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1)));
 			
 			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1))); 
-			b.evaluationMade(score_check); 
+			b.evaluationMade(score_check, false); 
 			System.out.println("Reject " + score_check);
 			a.change();
 		}

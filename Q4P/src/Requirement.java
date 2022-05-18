@@ -19,6 +19,9 @@ public class Requirement {
 		loc2 = rC[1]; //is not from, is from
 		loc3 = rC[2]; //is not from, is from
 		gpa =  Double.parseDouble(rC[3]); //higher or lower
+		if(gpa>4.70) {
+			gpa = 4.70;
+		}
 		donS = rC[4];
 		don = (int) Double.parseDouble(rC[4].replaceAll(",", "").substring(1)); //higher or lower
 		
@@ -57,14 +60,26 @@ public class Requirement {
 			s[1]="Admit students with a GPA higher than "+gpa+".";
 		}
 		else {
-			s[1]="Admit students with a GPA lower than "+gpa+". Ever since the incident, we need to tone it down.";
+			s[1]="Admit students with a GPA lower than or equal to "+gpa+". Ever since the incident, we need to tone it down.";
 		}
 		
 		if(c3) {
-			s[2] = "Admit students whose family has contributed more than "+donS+".";
+			if(don!=0) {
+				s[2] = "Admit students whose family has contributed more than "+donS+".";
+			}
+			else {
+				s[2] = "Admit students whose family has contributed to the school foundation.";
+			}
+			
 		}
 		else {
-			s[2] = "Admit students whose family has contributed less than or equal to "+donS+". We don't want repeats of last time.";
+			if(don!=0) {
+				s[2] = "Admit students whose family has contributed less than or equal to "+donS+". We don't want repeats of last time.";
+			}
+			else {
+				s[2] = "Admit students whose family have not contributed to the Yamford foundation. We have to lie low right now.";
+			}
+			
 		}
 		
 		return s;
@@ -101,7 +116,7 @@ public class Requirement {
 		else if(d<=don) {
 			isDonation = true;
 		}
-		
+		System.out.println(isLocation + " " + isGPA + " " + isDonation);
 		return isLocation && isGPA && isDonation;
 	}
 	

@@ -25,12 +25,23 @@ public class ApplicationMinigame {
 		t.scheduleAtFixedRate(tt, 0, gameLength*1000);
 	}
 	
-	public void evaluationMade(boolean wasCorrect) {
-		if(wasCorrect) {
-			points += reward;
+	public void evaluationMade(boolean wasCorrect, boolean accepting) {
+		if(accepting) {
+			if(wasCorrect) {
+				points += reward;
+			}
+			else if(wasCorrect == false) {
+				points -= reward;
+			}
 		}
-		else if(wasCorrect == false) {
-			points -= reward;
+		
+		else {
+			if(wasCorrect == false) {
+				points += reward;
+			}
+			else if(wasCorrect) {
+				points -= reward;
+			}
 		}
 	}
 	
