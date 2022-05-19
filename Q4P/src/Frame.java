@@ -40,7 +40,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean interview_check = false; 
 	boolean score_check; 
 	
-	int req = 200; 
+	int req = 1000; 
 
 
 public static void main(String[] arg) {
@@ -73,6 +73,8 @@ public void paint(Graphics g) {
 		b.gameLength = 2700; 
 		ao_check = true; 
 		report_check = false; 
+		r = new Requirement();
+		parseList = r.ParsedList();
 	}
 	
 	if(report_check == true && ao_check == true) {
@@ -177,7 +179,7 @@ public Frame() {
 			ao_check = false; 
 			report_check = true;
 			parseListPaint = true;
-			req+=50; 
+			req+=req; 
 		}
 
 		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
