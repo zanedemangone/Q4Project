@@ -10,6 +10,8 @@ public class Requirement {
 	private boolean c2;
 	private boolean c3;
 	
+	public int reqSelect;  
+	
 	private static DatasetGenerator g = new DatasetGenerator();
 	
 	public Requirement() {
@@ -45,6 +47,10 @@ public class Requirement {
 		else {
 			c3=true;
 		}
+	}
+	
+	public void change() {
+		 
 	}
 	
 	public String[] ParsedList() {

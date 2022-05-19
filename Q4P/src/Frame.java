@@ -38,8 +38,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean r_close_check = false; 
 	boolean report_check = false; 
 	boolean interview_check = false; 
-	
 	boolean score_check; 
+	
+	int req = 100; 
 
 
 public static void main(String[] arg) {
@@ -54,7 +55,17 @@ public void paint(Graphics g) {
 		b.run();
 		a.paint(g);
 		g.drawString("You have: " + Integer.toString(b.gameLength/45) + " seconds left", 800, 115); 
-		g.drawString(Integer.toString(b.points), 200, 100);
+		g.drawString("Score: " + Integer.toString(b.points), 100, 700);
+	}
+	
+	if(ao_check == true) {
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+		g.drawString(Integer.toString(b.points), 1300, 177);
+	}
+	
+	if(report_check == false) {
+		b.gameLength = 2700; 
+		a.change();
 	}
 	
 	if(b.gameLength == 0) {
@@ -62,6 +73,8 @@ public void paint(Graphics g) {
 		b.gameLength = 2700; 
 		ao_check = true; 
 		report_check = false; 
+		r = new Requirement();
+		parseList = r.ParsedList();
 	}
 	
 	if(report_check == true && ao_check == true) {
@@ -91,6 +104,7 @@ public void paint(Graphics g) {
 			}
 			count ++;
 		}
+		g.drawString("Make sure to earn more than " + Integer.toString(req) + " points", 1080, 760);
 	}
 	
 	//System.out.println(b.points);
@@ -165,6 +179,7 @@ public Frame() {
 			ao_check = false; 
 			report_check = true;
 			parseListPaint = true;
+			req*=2; 
 		}
 
 		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
@@ -200,7 +215,7 @@ public Frame() {
 	
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		//System.out.println(arg0.getX() + "," + arg0.getY());
+		System.out.println(arg0.getX() + "," + arg0.getY());
 	}
 	
 	@Override
@@ -249,11 +264,11 @@ public Frame() {
 				r_close_check = false;
 			}
 
-			if (report_check == true) {
+			/*if (report_check == true && b.gameLength == 0) {
 				bg.updateToAO();
 				ao_check = true;
 				report_check = false;
-			}
+			}*/
 		}
 		//System.out.println(arg0.getKeyCode());
 	}

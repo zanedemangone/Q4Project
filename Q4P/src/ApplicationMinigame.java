@@ -27,7 +27,7 @@ public class ApplicationMinigame {
 				points += reward;
 			}
 			else if(wasCorrect == false) {
-				points -= reward;
+				points -= reward * 10;
 			}
 		}
 		
@@ -36,7 +36,7 @@ public class ApplicationMinigame {
 				points += reward;
 			}
 			else if(wasCorrect) {
-				points -= reward;
+				points -= reward * 10;
 			}
 		}
 	}
