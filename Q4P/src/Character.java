@@ -27,7 +27,9 @@ public class Character {
 		if(getDonationAsInt()>=850000) {
 			donated = lastName + " Memorial Library"; //lol
 		}
-		faceNum = valueOf(c[8]);
+		if(getDonationAsInt()==0) {
+			donated = "Nothing";
+		}
 	}
 
 	public int getFaceNum() {

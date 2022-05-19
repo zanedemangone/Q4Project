@@ -24,7 +24,6 @@ public class Application {
 	public String dMoney; 
 	public String location;
 	public String donation; 
-	public int faceNum; 
 	
 	public ArrayList<Character> character = new ArrayList<Character>();
 	public int characterSelect;
@@ -42,12 +41,6 @@ public class Application {
 		dMoney = character.get(characterSelect).getDonation(); 
 		location = character.get(characterSelect).getLocation(); 
 		donation = character.get(characterSelect).getDonated(); 
-		faceNum = character.get(characterSelect).getFaceNum(); 
-	}
-	
-	public int faceNum(){
-		return faceNum;
-		 
 	}
 	
 	public void change() {
@@ -64,7 +57,6 @@ public class Application {
 		dMoney = character.get(characterSelect).getDonation(); 
 		location = character.get(characterSelect).getLocation(); 
 		donation = character.get(characterSelect).getDonated(); 
-		faceNum = character.get(characterSelect).getFaceNum(); 
 	}
 
 	public void paint(Graphics g) { 
