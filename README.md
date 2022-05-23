@@ -16,7 +16,7 @@ Yamie, our mascot of undergraduate admissions, will ever so helpfully guide you 
 Off you go! Good luck, and don't mess up. Really, don't. Don't. Do not mess up.
 
 # Architecture
-To make the admissions game tick, the prospective students and the requirments Yamie gives the player are both dynamically generated from a very large list of attributes. These values are ingested into the DatasetGenerator class, which then chooses them at random to generate a character or requirments.
+To make the admissions game tick, the prospective students and the requirements Yamie gives the player are both dynamically generated from a very large list of attributes. These values are ingested into the DatasetGenerator class, which then chooses them at random to generate a character or a requirement set.
 ```java
 public String[] generatePerson() {
   Random r = new Random();
@@ -34,7 +34,7 @@ public String[] generatePerson() {
 	return ret;
 }	
 ```
-On the other side, the Character object contains all the values needed to make an admissions decision, and is matched by the Requirments object. These are both presented to the player during the admissions game.
+On the other side, the Character object contains all the values needed to make an admissions decision, and is matched by the Requirement object. These are both presented to the player during the admissions game.
 ```java
 public Character() {
 	String[] c = g.generatePerson();
@@ -54,7 +54,7 @@ public Character() {
 	}
 }
 ```
-These characteristics are matched against admissions requrimements, and a determination is made to whether the player made the correct decision or not, upon which their score will be adjusted accordingly.
+These characteristics are matched against admissions requirements, and a determination is made to whether the player made the correct decision or not, upon which their score will be adjusted accordingly.
 ```java
 public void evaluationMade(boolean wasCorrect, boolean accepting) {
 	if(accepting) {
