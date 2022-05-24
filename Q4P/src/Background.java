@@ -85,6 +85,10 @@ public class Background{
 		img = getImage("/imgs/report.png"); 
 	}
 	
+	public void updateToGameOver() {
+		img = getImage("/imgs/abs_final.gif"); 
+	}
+	
 	public void studentBG(int faceNum) {
 		switch(faceNum) {
 		case 1: 

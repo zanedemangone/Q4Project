@@ -41,6 +41,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean score_check; 
 	
 	int req = 100; 
+	int YamieTimer = 0; 
 
 
 public static void main(String[] arg) {
@@ -107,7 +108,17 @@ public void paint(Graphics g) {
 		g.drawString("Make sure to earn more than " + Integer.toString(req) + " points", 1080, 760);
 	}
 	
-	//System.out.println(b.points);
+	while(control == false) {
+		YamieTimer++; 
+	}
+	
+	if(YamieTimer == 531) {
+		control = true; 
+		bg.updateToDesk();
+		desk_check = true; 
+		ao_check = false; 
+		b.points = 0; 
+	}
 	
 }
 
@@ -135,46 +146,46 @@ public Frame() {
 			return;
 		}
 		
-		if((arg0.getX() >= 100 && arg0.getX() <= 810) && (arg0.getY() >= 180 && arg0.getY() <= 580) && desk_check == true) {
+		if((arg0.getX() >= 100 && arg0.getX() <= 810) && (arg0.getY() >= 180 && arg0.getY() <= 580) && desk_check == true && control == true) {
 			bg.updateToCS();
 			desk_check = false; 
 			screen_check = true; 
 		}
 
 		//transition from comp screen to login page or gmail 
-		if((arg0.getX() >= 154 && arg0.getX() <= 224) && (arg0.getY() >= 120 && arg0.getY() <= 200) && screen_check == true) {
+		if((arg0.getX() >= 154 && arg0.getX() <= 224) && (arg0.getY() >= 120 && arg0.getY() <= 200) && screen_check == true && control == true) {
 			bg.updateToGmail();
 			screen_check = false; 
 			gmail_check = true; 
 		}
 
-		if((arg0.getX() >= 154 && arg0.getX() <= 224) && (arg0.getY() >= 240 && arg0.getY() <= 300) && screen_check == true) {
+		if((arg0.getX() >= 154 && arg0.getX() <= 224) && (arg0.getY() >= 240 && arg0.getY() <= 300) && screen_check == true && control == true) {
 			bg.updateToLogin();
 			screen_check = false; 
 			login_check = true; 
 		}
 
 		//transition from login page to ao page
-		if((arg0.getX() >= 1200 && arg0.getX() <= 1350) && (arg0.getY() >= 100 && arg0.getY() <= 150) && login_check == true) {
+		if((arg0.getX() >= 1200 && arg0.getX() <= 1350) && (arg0.getY() >= 100 && arg0.getY() <= 150) && login_check == true && control == true) {
 			bg.updateToAO();
 			login_check = false; 
 			ao_check = true; 
 		}
 
 		//transition from desk to rules 
-		if((arg0.getX() >= 1150 && arg0.getX() <= 1330) && (arg0.getY() >= 140 && arg0.getY() <= 440) && desk_check == true) {
+		if((arg0.getX() >= 1150 && arg0.getX() <= 1330) && (arg0.getY() >= 140 && arg0.getY() <= 440) && desk_check == true && control == true) {
 			bg.updateToRules();
 			desk_check = false; 
 			rules_check = true; 
 		}
 
-		if((arg0.getX() >= 620 && arg0.getX() <= 1020) && (arg0.getY() >= 100 && arg0.getY() <= 680) && rules_check == true) {
+		if((arg0.getX() >= 620 && arg0.getX() <= 1020) && (arg0.getY() >= 100 && arg0.getY() <= 680) && rules_check == true && control == true) {
 			bg.updateToRulesCloseUp();
 			rules_check = false; 
 			r_close_check = true;
 		}
 
-		if((arg0.getX() >= 60 && arg0.getX() <= 840) && (arg0.getY() >= 260 && arg0.getY() <= 740) && ao_check == true) {
+		if((arg0.getX() >= 60 && arg0.getX() <= 840) && (arg0.getY() >= 260 && arg0.getY() <= 740) && ao_check == true && control == true) {
 			bg.updateToReport();
 			ao_check = false; 
 			report_check = true;
@@ -182,7 +193,7 @@ public Frame() {
 			req*=2; 
 		}
 
-		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
+		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true && control == true) {
 			
 			System.out.println(a.location + " " + Double.parseDouble(a.gpa) + " " + (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1)));
 			
@@ -192,7 +203,7 @@ public Frame() {
 			a.change();
 		}
 
-		if((arg0.getX() >= 708 && arg0.getX() <= 1044) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
+		if((arg0.getX() >= 708 && arg0.getX() <= 1044) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true && control == true) {
 			
 			System.out.println(a.location + " " + Double.parseDouble(a.gpa) + " " + (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1)));
 			
@@ -202,10 +213,9 @@ public Frame() {
 			a.change();
 		}
 		
-		if(interview_check == true){
-			bg.studentBG(a.faceNum());
-			bg.updateToZoom();
-			
+		if(b.points < req && b.gameLength == 0 && control == true) {
+			control = false; 
+			bg.updateToGameOver();
 		}
 	}
 	
