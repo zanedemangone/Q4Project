@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class Background{
 	
-	//add location attributes
+	// location attributes
 	private Image img; 	
 	private Image img2; 
 	private AffineTransform tx;
@@ -26,18 +26,8 @@ public class Background{
 	public void paint(Graphics g) {
 		//these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
-		
-		
-		//call update to update the actual y picture location
-		update();
-		
-		
-		
-		
+		update(); //call update to update the actual  picture location
 		g2.drawImage(img, tx, null);
-		
-		
-
 	}
 	/* update the picture variable location */
 	
@@ -45,6 +35,7 @@ public class Background{
 		
 	}
 	
+	//update to various backgrounds
 	public void updateToGmail() {
 		img = getImage("/imgs/gmail_bg.png"); 
 
@@ -88,31 +79,6 @@ public class Background{
 	
 	public void updateToGameOver() {
 		img = getImage("/imgs/abs_final.gif"); 
-	}
-	
-	public void studentBG(int faceNum) {
-		switch(faceNum) {
-		case 1: 
-			img2 = getImage("/imgs/sbg1.png"); 
-		case 2: 
-			img2 = getImage("/imgs/sbg2.png"); 
-		case 3:
-			img2 = getImage("/imgs/sbg3.png"); 
-		case 4: 
-			img2 = getImage("/imgs/sbg4.png"); 
-		case 5: 
-			img2 = getImage("/imgs/sbg5.png"); 
-		case 6: 
-			img2 = getImage("/imgs/sbg6.png"); 
-		case 7: 
-			img2 = getImage("/imgs/sbg7.png"); 
-		case 8: 
-			img2 = getImage("/imgs/sbg8.png"); 
-		case 9: 
-			img2 = getImage("/imgs/sbg9.png"); 
-		case 10: 
-			img2 = getImage("/imgs/sbg10.png"); 
-		}
 	}
 
 	private void init(double a, double b) {

@@ -26,49 +26,19 @@ public class Application {
 	private String location;
 	private String donation;
 	
-	//the applicants
+	//the applicant
 	private Character c = new Character();
-	//public ArrayList<Character> character = new ArrayList<Character>();
-	//public int characterSelect;
 
-	public Application() {
-		/*
-		for(int i = 0; i < 100; i ++) {
-			character.add(new Character());
-		}
-		characterSelect = (int)(Math.random()*character.size());
-		name = character.get(characterSelect).getFirstName(); 
-		lastName = character.get(characterSelect).getLastName(); 
-		gpa = character.get(characterSelect).getGpa(); 
-		pStatement = character.get(characterSelect).getPersonalStatement(); 
-		ec = character.get(characterSelect).getExtracurricular(); 
-		dMoney = character.get(characterSelect).getDonation(); 
-		location = character.get(characterSelect).getLocation(); 
-		donation = character.get(characterSelect).getDonated(); 
-		*/
+	public Application() { //update characteristics from initially generated character
 		modify();
-		
 	}
 	
-	public void change() {
+	public void change() { //generate new character and update characteristics
 		c= new Character();
 		modify();
-		//int notNum = characterSelect;
-		//while(characterSelect == notNum) {
-		//	characterSelect = (int)(Math.random()*character.size());
-		//}
-		//characterSelect = (int)(Math.random()*character.size());
-		//name = character.get(characterSelect).getFirstName(); 
-		//lastName = character.get(characterSelect).getLastName(); 
-		//gpa = character.get(characterSelect).getGpa(); 
-		//pStatement = character.get(characterSelect).getPersonalStatement(); 
-		//ec = character.get(characterSelect).getExtracurricular(); 
-		//dMoney = character.get(characterSelect).getDonation(); 
-		//location = character.get(characterSelect).getLocation(); 
-		//donation = character.get(characterSelect).getDonated(); 
 	}
 
-	public void modify() {
+	public void modify() { //update all characteristics
 		name = c.getFirstName();
 		lastName = c.getLastName(); 
 		gpa = c.getGpa(); 
@@ -79,7 +49,7 @@ public class Application {
 		donation = c.getDonated(); 
 	}
 	
-	public void paint(Graphics g) { 
+	public void paint(Graphics g) { //paint the frame
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 40)); 
 		
@@ -95,8 +65,7 @@ public class Application {
 		
 		//ec
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-		//g.drawString(ec, 1020, 240);
-		if(ec.length() < 34) {
+		if(ec.length() < 34) { //break up string if it is too long
 			g.drawString(ec, 1020, 240);
 		}else {
 			g.drawString(ec.substring(0, 34), 1020, 240);
