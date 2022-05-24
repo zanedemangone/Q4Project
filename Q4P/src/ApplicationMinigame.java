@@ -3,7 +3,7 @@ import java.util.TimerTask;
 
 public class ApplicationMinigame {
 	
-	public static int points = 0;
+	private static int points = 0;
 	private int reward = 10;
 	//changed it to 60 seconds per round
 	public int gameLength = 2700;
@@ -19,10 +19,6 @@ public class ApplicationMinigame {
 	
 	public void run() {
 		gameLength--; 
-	}
-	public void start() {
-		//timer runs in milliseconds 
-		t.scheduleAtFixedRate(tt, 0, gameLength*1000);
 	}
 	
 	public void evaluationMade(boolean wasCorrect, boolean accepting) {
@@ -45,8 +41,16 @@ public class ApplicationMinigame {
 		}
 	}
 	
-	public void gameExit() {
-		t.cancel();
+	public static int getPoints() {
+		return points;
+	}
+	
+	public static void setPoints(int p) {
+		points = p; 
+	}
+
+	public int getGameLength() {
+		return gameLength;
 	}
 	
 }

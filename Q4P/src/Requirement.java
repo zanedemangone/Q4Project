@@ -129,25 +129,5 @@ public class Requirement {
 	public boolean correctDecision(Character c) {
 		return correctDecision(c.getLocation(), c.getGpaAsDouble(), c.getDonationAsInt());
 	}
-
-	public String getLoc1() {
-		return loc1;
-	}
-
-	public String getLoc2() {
-		return loc2;
-	}
-
-	public String getLoc3() {
-		return loc3;
-	}
-
-	public double getGpa() {
-		return gpa;
-	}
-
-	public int getDonation() {
-		return don;
-	}
 	
 }

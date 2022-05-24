@@ -56,12 +56,12 @@ public void paint(Graphics g) {
 		b.run();
 		a.paint(g);
 		g.drawString("You have: " + Integer.toString(b.gameLength/45) + " seconds left", 800, 115); 
-		g.drawString("Score: " + Integer.toString(b.points), 100, 700);
+		g.drawString("Score: " + Integer.toString(b.getPoints()), 100, 700);
 	}
 	
 	if(ao_check == true) {
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
-		g.drawString(Integer.toString(b.points), 1300, 177);
+		g.drawString(Integer.toString(b.getPoints()), 1300, 177);
 	}
 	
 	if(report_check == false) {
@@ -79,8 +79,9 @@ public void paint(Graphics g) {
 	}
 	
 	if(report_check == true && ao_check == true) {
-		g.drawString(Integer.toString(b.points), 1200, 400);
+		g.drawString(Integer.toString(b.getPoints()), 1200, 400);
 	}
+	
 	
 	
 	g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
@@ -117,7 +118,7 @@ public void paint(Graphics g) {
 		bg.updateToDesk();
 		desk_check = true; 
 		ao_check = false; 
-		b.points = 0; 
+		b.setPoints(0);
 	}
 	
 }
@@ -195,9 +196,9 @@ public Frame() {
 
 		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true && control == true) {
 			
-			System.out.println(a.location + " " + Double.parseDouble(a.gpa) + " " + (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1)));
+			System.out.println(a.getLocation() + " " + Double.parseDouble(a.getGpa()) + " " + (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1)));
 			
-			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1))); 
+			score_check = r.correctDecision(a.getLocation(), Double.parseDouble(a.getGpa()), (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1))); 
 			b.evaluationMade(score_check, true); 
 			System.out.println("Accept " + score_check);
 			a.change();
@@ -205,15 +206,15 @@ public Frame() {
 
 		if((arg0.getX() >= 708 && arg0.getX() <= 1044) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true && control == true) {
 			
-			System.out.println(a.location + " " + Double.parseDouble(a.gpa) + " " + (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1)));
+			System.out.println(a.getLocation() + " " + Double.parseDouble(a.getGpa()) + " " + (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1)));
 			
-			score_check = r.correctDecision(a.location, Double.parseDouble(a.gpa), (int) Double.parseDouble(a.dMoney.replaceAll(",", "").substring(1))); 
+			score_check = r.correctDecision(a.getLocation(), Double.parseDouble(a.getGpa()), (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1))); 
 			b.evaluationMade(score_check, false); 
 			System.out.println("Reject " + score_check);
 			a.change();
 		}
 		
-		if(b.points < req && b.gameLength == 0 && control == true) {
+		if(b.getPoints() < req && b.gameLength == 0 && control == true) {
 			control = false; 
 			bg.updateToGameOver();
 		}

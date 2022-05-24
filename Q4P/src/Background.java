@@ -84,6 +84,7 @@ public class Background{
 	public void updateToReport() {
 		img = getImage("/imgs/report.png"); 
 	}
+
 	
 	public void updateToGameOver() {
 		img = getImage("/imgs/abs_final.gif"); 
