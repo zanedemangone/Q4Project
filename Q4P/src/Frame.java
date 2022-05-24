@@ -51,6 +51,23 @@ public static void main(String[] arg) {
 public void paint(Graphics g) {
 	super.paintComponent(g);
 	bg.paint(g); 
+	
+	if(b.getPoints() < req && b.gameLength == 0 && control == true) {
+		control = false; 
+		bg.updateToGameOver();
+	}
+	
+	while(control == false) {
+		YamieTimer++; 
+	}
+	
+	if(YamieTimer == 531) {
+		control = true; 
+		bg.updateToDesk();
+		desk_check = true; 
+		ao_check = false; 
+		b.setPoints(0);
+	}
 
 	if(report_check == true && b.gameLength >= 0) {
 		b.run();
@@ -107,18 +124,6 @@ public void paint(Graphics g) {
 			count ++;
 		}
 		g.drawString("Make sure to earn more than " + Integer.toString(req) + " points", 1080, 760);
-	}
-	
-	while(control == false) {
-		YamieTimer++; 
-	}
-	
-	if(YamieTimer == 531) {
-		control = true; 
-		bg.updateToDesk();
-		desk_check = true; 
-		ao_check = false; 
-		b.setPoints(0);
 	}
 	
 }
@@ -214,10 +219,7 @@ public Frame() {
 			a.change();
 		}
 		
-		if(b.getPoints() < req && b.gameLength == 0 && control == true) {
-			control = false; 
-			bg.updateToGameOver();
-		}
+
 	}
 	
 	@Override
