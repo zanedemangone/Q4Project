@@ -26,19 +26,21 @@ public class Application {
 	private String location;
 	private String donation;
 	
-	//the applicant
+	//the applicants
 	private Character c = new Character();
 
 	public Application() { //update characteristics from initially generated character
 		modify();
 	}
 	
-	public void change() { //generate new character and update characteristics
+	//changes the current student to a new student 
+	public void change() {
 		c= new Character();
 		modify();
 	}
-
-	public void modify() { //update all characteristics
+	
+	//updates the information to the new student generated 
+	public void modify() {
 		name = c.getFirstName();
 		lastName = c.getLastName(); 
 		gpa = c.getGpa(); 

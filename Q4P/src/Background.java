@@ -26,7 +26,9 @@ public class Background{
 	public void paint(Graphics g) {
 		//these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
-		update(); //call update to update the actual  picture location
+
+		//call update to update the actual y picture location
+		update();
 		g2.drawImage(img, tx, null);
 	}
 	/* update the picture variable location */
@@ -75,7 +77,6 @@ public class Background{
 	public void updateToReport() {
 		img = getImage("/imgs/report.png"); 
 	}
-
 	
 	public void updateToGameOver() {
 		img = getImage("/imgs/abs_final.gif"); 

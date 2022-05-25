@@ -6,6 +6,7 @@ public class ApplicationMinigame {
 	private static int points = 0; //points in game
 	private int reward = 10; //point reward base
 	private int gameLength = 2700; //2700 frames * 45 frames per second = 60 seconds
+	private int count;
 
 	Timer t = new Timer();
 	TimerTask tt = new TimerTask() { //keep the game running
@@ -49,9 +50,10 @@ public class ApplicationMinigame {
 	public int getGameLength() {
 		return gameLength;
 	}
-	
+
 	public void setGameLength(int l) {
-		gameLength = l;
+		gameLength=l;
+		
 	}
 	
 }
