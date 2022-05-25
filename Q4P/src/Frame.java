@@ -52,11 +52,6 @@ public void paint(Graphics g) {
 	super.paintComponent(g);
 	bg.paint(g); 
 	
-	if(b.getPoints() < req && b.getGameLength() == 0 && control) {
-		control = false; 
-		bg.updateToGameOver();
-	}
-	
 	while(control == false) {
 		YamieTimer++; 
 	}
@@ -69,7 +64,7 @@ public void paint(Graphics g) {
 		b.setPoints(0);
 	}
 
-	if(report_check && b.getGameLength() >= 0) { //update timer when application game is running
+	if(report_check && b.getGameLength() >= 0 && control) {//update timer when application game is running
 		b.run();
 		a.paint(g);
 		g.drawString("You have: " + Integer.toString(b.getGameLength()/45) + " seconds left", 800, 115); 
@@ -86,13 +81,20 @@ public void paint(Graphics g) {
 		a.change();
 	}
 	
-	if(b.getGameLength() == 0) { //game ends, boot you back and reset
+	if(b.getGameLength() == 0 && req < b.getPoints()) { //game ends, boot you back and reset
 		bg.updateToAO();
 		b.setGameLength(2700); 
 		ao_check = true; 
 		report_check = false; 
 		r = new Requirement();
 		parseList = r.ParsedList();
+		
+	}else if(b.getGameLength() == 0 && req >= b.getPoints()) {
+		bg.updateToGameOver();
+		control = false;  
+		
+	}else {
+		control = true; 
 	}
 	
 	if(report_check == true && ao_check == true) {
@@ -123,7 +125,7 @@ public void paint(Graphics g) {
 			}
 			count ++;
 		}
-		g.drawString("Make sure to earn more than " + Integer.toString(req) + " points", 1080, 760);
+		g.drawString("Make sure to earn more than " + Integer.toString(req) + " points", 1080, 638 + 12 * (count + 1));
 	}
 	
 }
