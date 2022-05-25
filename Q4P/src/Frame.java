@@ -283,13 +283,8 @@ public Frame() {
 				r_close_check = false;
 			}
 
-			/*if (report_check == true && b.gameLength == 0) {
-				bg.updateToAO();
-				ao_check = true;
-				report_check = false;
-			}*/
 		}
-		//System.out.println(arg0.getKeyCode());
+
 	}
 	
 	@Override
