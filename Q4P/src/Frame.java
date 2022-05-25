@@ -54,63 +54,52 @@ public void paint(Graphics g) {
 	super.paintComponent(g);
 	bg.paint(g); 
 	
-	while(yamie_check == true) {
-		YamieTimer++; 
+	if(yamie_check == true) {
+		YamieTimer++; 	//timer for the length of the gif 
 	}
 	
-	if(YamieTimer == 531) { 
-		yamie_check = false; 
-		bg.updateToDesk();
-		desk_check = true; 
-		ao_check = false; 
-		b.setPoints(0);
-		YamieTimer = 0; 
+	if(YamieTimer == 430) { 
+		System.exit(0);	//window closes once the timer allows the gif to fully play 
 	}
 
-	if(report_check == true && b.gameLength >= 0) {
+	if(report_check == true && b.gameLength >= 0) {	//shows the timer on the report screen only when the player is on the report screen 
 		b.run();
 		a.paint(g);
 		g.drawString("You have: " + Integer.toString(b.gameLength/45) + " seconds left", 800, 115); 
 		g.drawString("Score: " + Integer.toString(b.getPoints()), 100, 700);
 	}
 	
-	if(ao_check == true) {
+	if(ao_check == true) {	//shows the total amount of points gained on the admission offers screen 
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
 		g.drawString(Integer.toString(b.getPoints()), 1300, 177);
 	}
 	
-	if(report_check == false) {
-		b.gameLength = 90; 
+	if(report_check == false) {	//resets the game length timer once a session of admission officer-ing is finished
+		b.gameLength = 2700; 
 		a.change();
 	}
 	
-	if(b.getGameLength() == 0) {
-		if(req <= b.getPoints()) {
+	if(b.getGameLength() == 0) {	//logic for once the session timer hits 0 	
+		if(req <= b.getPoints()) {	//good ending: resets to the admission officer screen and you live to see another day 
 			bg.updateToAO();
-			b.gameLength = 90; 
+			b.gameLength = 2700; 
 			ao_check = true; 
 			report_check = false; 
 			r = new Requirement();
 			parseList = r.ParsedList();
 		}else {
-			bg.updateToGameOver();
+			bg.updateToGameOver();	//bad ending if the player fails to meet the requirements
 			yamie_check = true; 
 			report_check = false; 
-			//System.out.println("lose"); 
 		}
 	}
 	
-	if(report_check == true && ao_check == true) {
-		g.drawString(Integer.toString(b.getPoints()), 1200, 400);
-	}
-	
-	
-	
 	g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
-	if(parseListPaint && report_check == true) {
+	
+	if(parseListPaint && report_check == true) {	
 		int count = 0;;
-		for(String s : parseList) {
-			if(s.length() > 30) {
+		for(String s : parseList) {	//accesses the attributes needed to be displayed on the student admission report 
+			if(s.length() > 30) {	//when an attribute is too long, it draws the rest of the string on a next line 
 				int length = s.length();
 				while(length > 0) {
 					if(length > 43) {
@@ -121,14 +110,14 @@ public void paint(Graphics g) {
 						g.drawString(s.substring(0), 1080, 638 + 12 * count);
 						length = 0;
 					}
-					count ++;
+					count++;
 				}
 			}else {
 				g.drawString(s, 1080, 638 + 12 * count);
 			}
-			count ++;
+			count++;
 		}
-		g.drawString("Make sure to earn more than " + Integer.toString(req) + " points", 1080, 638 + 12 * (count + 1));
+		g.drawString("Make sure to earn more than " + Integer.toString(req) + " points", 1080, 638 + 12 * (count + 1));	//draws the string that shows the requirement for points 
 	}
 	
 }
@@ -152,7 +141,6 @@ public Frame() {
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		//transition from desk to comp screen 
-		
 		if((arg0.getX() >= 100 && arg0.getX() <= 810) && (arg0.getY() >= 180 && arg0.getY() <= 580) && desk_check == true) {
 			bg.updateToCS();
 			desk_check = false; 
@@ -165,7 +153,8 @@ public Frame() {
 			screen_check = false; 
 			gmail_check = true; 
 		}
-
+		
+		//transition from the screen page to the login page 
 		if((arg0.getX() >= 154 && arg0.getX() <= 224) && (arg0.getY() >= 240 && arg0.getY() <= 300) && screen_check == true) {
 			bg.updateToLogin();
 			screen_check = false; 
@@ -185,13 +174,15 @@ public Frame() {
 			desk_check = false; 
 			rules_check = true; 
 		}
-
+		
+		//updates from the rules to a close up of the rules 
 		if((arg0.getX() >= 620 && arg0.getX() <= 1020) && (arg0.getY() >= 100 && arg0.getY() <= 680) && rules_check == true) {
 			bg.updateToRulesCloseUp();
 			rules_check = false; 
 			r_close_check = true;
 		}
 
+		//updates from the admission officer page to the report page 
 		if((arg0.getX() >= 60 && arg0.getX() <= 840) && (arg0.getY() >= 260 && arg0.getY() <= 740) && ao_check == true) {
 			bg.updateToReport();
 			ao_check = false; 
@@ -200,20 +191,19 @@ public Frame() {
 			req*=2; 
 		}
 
-		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
-			
+		//logic for the accept button
+		//calculates whether or not the player made the correct decision and updates the score accordingly 
+		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {		
 			System.out.println(a.getLocation() + " " + Double.parseDouble(a.getGpa()) + " " + (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1)));
-			
 			score_check = r.correctDecision(a.getLocation(), Double.parseDouble(a.getGpa()), (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1))); 
 			b.evaluationMade(score_check, true); 
 			System.out.println("Accept " + score_check);
 			a.change();
 		}
-
+		//logic for the reject button
+		//calculates whether or not the player made the correct decision and updates the score accordingly
 		if((arg0.getX() >= 708 && arg0.getX() <= 1044) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true) {
-			
 			System.out.println(a.getLocation() + " " + Double.parseDouble(a.getGpa()) + " " + (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1)));
-			
 			score_check = r.correctDecision(a.getLocation(), Double.parseDouble(a.getGpa()), (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1))); 
 			b.evaluationMade(score_check, false); 
 			System.out.println("Reject " + score_check);
@@ -235,7 +225,6 @@ public Frame() {
 	
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		System.out.println(arg0.getX() + "," + arg0.getY());
 	}
 	
 	@Override
@@ -252,7 +241,7 @@ public Frame() {
 	
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-		if (arg0.getKeyCode() == 27) {
+		if (arg0.getKeyCode() == 27) {	//once the escape key is hit, it will transition to the previous background accordingly
 			if (screen_check == true) {
 				bg.updateToDesk();
 				desk_check = true;

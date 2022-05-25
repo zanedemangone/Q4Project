@@ -28,46 +28,19 @@ public class Application {
 	
 	//the applicants
 	private Character c = new Character();
-	//public ArrayList<Character> character = new ArrayList<Character>();
-	//public int characterSelect;
 
 	public Application() {
-		/*
-		for(int i = 0; i < 100; i ++) {
-			character.add(new Character());
-		}
-		characterSelect = (int)(Math.random()*character.size());
-		name = character.get(characterSelect).getFirstName(); 
-		lastName = character.get(characterSelect).getLastName(); 
-		gpa = character.get(characterSelect).getGpa(); 
-		pStatement = character.get(characterSelect).getPersonalStatement(); 
-		ec = character.get(characterSelect).getExtracurricular(); 
-		dMoney = character.get(characterSelect).getDonation(); 
-		location = character.get(characterSelect).getLocation(); 
-		donation = character.get(characterSelect).getDonated(); 
-		*/
 		modify();
 		
 	}
 	
+	//changes the current student to a new student 
 	public void change() {
 		c= new Character();
 		modify();
-		//int notNum = characterSelect;
-		//while(characterSelect == notNum) {
-		//	characterSelect = (int)(Math.random()*character.size());
-		//}
-		//characterSelect = (int)(Math.random()*character.size());
-		//name = character.get(characterSelect).getFirstName(); 
-		//lastName = character.get(characterSelect).getLastName(); 
-		//gpa = character.get(characterSelect).getGpa(); 
-		//pStatement = character.get(characterSelect).getPersonalStatement(); 
-		//ec = character.get(characterSelect).getExtracurricular(); 
-		//dMoney = character.get(characterSelect).getDonation(); 
-		//location = character.get(characterSelect).getLocation(); 
-		//donation = character.get(characterSelect).getDonated(); 
 	}
-
+	
+	//updates the information to the new student generated 
 	public void modify() {
 		name = c.getFirstName();
 		lastName = c.getLastName(); 

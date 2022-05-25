@@ -30,14 +30,7 @@ public class Background{
 		
 		//call update to update the actual y picture location
 		update();
-		
-		
-		
-		
 		g2.drawImage(img, tx, null);
-		
-		
-
 	}
 	/* update the picture variable location */
 	
@@ -89,31 +82,6 @@ public class Background{
 		img = getImage("/imgs/abs_final.gif"); 
 	}
 	
-	public void studentBG(int faceNum) {
-		switch(faceNum) {
-		case 1: 
-			img2 = getImage("/imgs/sbg1.png"); 
-		case 2: 
-			img2 = getImage("/imgs/sbg2.png"); 
-		case 3:
-			img2 = getImage("/imgs/sbg3.png"); 
-		case 4: 
-			img2 = getImage("/imgs/sbg4.png"); 
-		case 5: 
-			img2 = getImage("/imgs/sbg5.png"); 
-		case 6: 
-			img2 = getImage("/imgs/sbg6.png"); 
-		case 7: 
-			img2 = getImage("/imgs/sbg7.png"); 
-		case 8: 
-			img2 = getImage("/imgs/sbg8.png"); 
-		case 9: 
-			img2 = getImage("/imgs/sbg9.png"); 
-		case 10: 
-			img2 = getImage("/imgs/sbg10.png"); 
-		}
-	}
-
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
 		tx.scale(4.0, 3.8);
