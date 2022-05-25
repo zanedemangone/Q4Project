@@ -40,8 +40,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean interview_check = false; 
 	boolean score_check; 
 	
-	int req = 100; 
-	int YamieTimer = 0; 
+	int req = 100; //score quota 
+	int YamieTimer = 0; //timer for cutscene
 
 
 public static void main(String[] arg) {
@@ -52,7 +52,7 @@ public void paint(Graphics g) {
 	super.paintComponent(g);
 	bg.paint(g); 
 	
-	if(b.getPoints() < req && b.gameLength == 0 && control == true) {
+	if(b.getPoints() < req && b.getGameLength() == 0 && control) {
 		control = false; 
 		bg.updateToGameOver();
 	}
@@ -69,26 +69,26 @@ public void paint(Graphics g) {
 		b.setPoints(0);
 	}
 
-	if(report_check == true && b.gameLength >= 0) {
+	if(report_check && b.getGameLength() >= 0) { //update timer when application game is running
 		b.run();
 		a.paint(g);
-		g.drawString("You have: " + Integer.toString(b.gameLength/45) + " seconds left", 800, 115); 
+		g.drawString("You have: " + Integer.toString(b.getGameLength()/45) + " seconds left", 800, 115); 
 		g.drawString("Score: " + Integer.toString(b.getPoints()), 100, 700);
 	}
 	
-	if(ao_check == true) {
+	if(ao_check) { //update points when on the ao menu
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
 		g.drawString(Integer.toString(b.getPoints()), 1300, 177);
 	}
 	
-	if(report_check == false) {
-		b.gameLength = 2700; 
+	if(!report_check) { //if outside of the application game, reset the game so it is fresh for the next go
+		b.setGameLength(2700); 
 		a.change();
 	}
 	
-	if(b.gameLength == 0) {
+	if(b.getGameLength() == 0) { //game ends, boot you back and reset
 		bg.updateToAO();
-		b.gameLength = 2700; 
+		b.setGameLength(2700); 
 		ao_check = true; 
 		report_check = false; 
 		r = new Requirement();
@@ -102,7 +102,7 @@ public void paint(Graphics g) {
 	
 	
 	g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
-	if(parseListPaint && report_check == true) {
+	if(parseListPaint && report_check) {
 		int count = 0;;
 		for(String s : parseList) {
 			if(s.length() > 30) {
@@ -148,50 +148,50 @@ public Frame() {
 	public void mouseClicked(MouseEvent arg0) {
 		//transition from desk to comp screen 
 		
-		if(control == false) {
+		if(!control) {
 			return;
 		}
 		
-		if((arg0.getX() >= 100 && arg0.getX() <= 810) && (arg0.getY() >= 180 && arg0.getY() <= 580) && desk_check == true && control == true) {
+		if((arg0.getX() >= 100 && arg0.getX() <= 810) && (arg0.getY() >= 180 && arg0.getY() <= 580) && desk_check && control) {
 			bg.updateToCS();
 			desk_check = false; 
 			screen_check = true; 
 		}
 
 		//transition from comp screen to login page or gmail 
-		if((arg0.getX() >= 154 && arg0.getX() <= 224) && (arg0.getY() >= 120 && arg0.getY() <= 200) && screen_check == true && control == true) {
+		if((arg0.getX() >= 154 && arg0.getX() <= 224) && (arg0.getY() >= 120 && arg0.getY() <= 200) && screen_check && control) {
 			bg.updateToGmail();
 			screen_check = false; 
 			gmail_check = true; 
 		}
 
-		if((arg0.getX() >= 154 && arg0.getX() <= 224) && (arg0.getY() >= 240 && arg0.getY() <= 300) && screen_check == true && control == true) {
+		if((arg0.getX() >= 154 && arg0.getX() <= 224) && (arg0.getY() >= 240 && arg0.getY() <= 300) && screen_check && control) {
 			bg.updateToLogin();
 			screen_check = false; 
 			login_check = true; 
 		}
 
 		//transition from login page to ao page
-		if((arg0.getX() >= 1200 && arg0.getX() <= 1350) && (arg0.getY() >= 100 && arg0.getY() <= 150) && login_check == true && control == true) {
+		if((arg0.getX() >= 1200 && arg0.getX() <= 1350) && (arg0.getY() >= 100 && arg0.getY() <= 150) && login_check && control) {
 			bg.updateToAO();
 			login_check = false; 
 			ao_check = true; 
 		}
 
 		//transition from desk to rules 
-		if((arg0.getX() >= 1150 && arg0.getX() <= 1330) && (arg0.getY() >= 140 && arg0.getY() <= 440) && desk_check == true && control == true) {
+		if((arg0.getX() >= 1150 && arg0.getX() <= 1330) && (arg0.getY() >= 140 && arg0.getY() <= 440) && desk_check && control) {
 			bg.updateToRules();
 			desk_check = false; 
 			rules_check = true; 
 		}
 
-		if((arg0.getX() >= 620 && arg0.getX() <= 1020) && (arg0.getY() >= 100 && arg0.getY() <= 680) && rules_check == true && control == true) {
+		if((arg0.getX() >= 620 && arg0.getX() <= 1020) && (arg0.getY() >= 100 && arg0.getY() <= 680) && rules_check && control) {
 			bg.updateToRulesCloseUp();
 			rules_check = false; 
 			r_close_check = true;
 		}
 
-		if((arg0.getX() >= 60 && arg0.getX() <= 840) && (arg0.getY() >= 260 && arg0.getY() <= 740) && ao_check == true && control == true) {
+		if((arg0.getX() >= 60 && arg0.getX() <= 840) && (arg0.getY() >= 260 && arg0.getY() <= 740) && ao_check && control) {
 			bg.updateToReport();
 			ao_check = false; 
 			report_check = true;
@@ -199,23 +199,17 @@ public Frame() {
 			req*=2; 
 		}
 
-		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true && control == true) {
-			
-			System.out.println(a.getLocation() + " " + Double.parseDouble(a.getGpa()) + " " + (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1)));
-			
+		if((arg0.getX() >= 315 && arg0.getX() <= 651) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check && control) {
 			score_check = r.correctDecision(a.getLocation(), Double.parseDouble(a.getGpa()), (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1))); 
 			b.evaluationMade(score_check, true); 
-			System.out.println("Accept " + score_check);
+
 			a.change();
 		}
 
-		if((arg0.getX() >= 708 && arg0.getX() <= 1044) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check == true && control == true) {
-			
-			System.out.println(a.getLocation() + " " + Double.parseDouble(a.getGpa()) + " " + (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1)));
-			
+		if((arg0.getX() >= 708 && arg0.getX() <= 1044) && (arg0.getY() >= 614 && arg0.getY() <= 814) && report_check && control) {
 			score_check = r.correctDecision(a.getLocation(), Double.parseDouble(a.getGpa()), (int) Double.parseDouble(a.getdMoney().replaceAll(",", "").substring(1))); 
 			b.evaluationMade(score_check, false); 
-			System.out.println("Reject " + score_check);
+
 			a.change();
 		}
 		
@@ -234,7 +228,7 @@ public Frame() {
 	
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		System.out.println(arg0.getX() + "," + arg0.getY());
+
 	}
 	
 	@Override

@@ -4,6 +4,7 @@ import java.util.*;
 
 public class DatasetGenerator {
 
+	//all the attributes in the CSV
 	private static ArrayList<String> firstNames = new ArrayList<String>();
 	private static ArrayList<String> lastNames = new ArrayList<String>();
 	private static ArrayList<String> location = new ArrayList<String>();
@@ -15,7 +16,7 @@ public class DatasetGenerator {
 
 	public DatasetGenerator() {
 		try {
-			initializeArrays();
+			initializeArrays(); //initialize every one of these when the program starts
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -25,6 +26,7 @@ public class DatasetGenerator {
 		Random r = new Random();
 		
 		String[] ret = new String[8];
+		//randomly pick values from the big lists of attributes and return them to form a character
 		ret[0] = firstNames.get(r.nextInt(firstNames.size()));
 		ret[1] = lastNames.get(r.nextInt(lastNames.size()));
 		ret[2] = location.get(r.nextInt(location.size()));
@@ -41,6 +43,8 @@ public class DatasetGenerator {
 		Random r = new Random();
 		
 		String[] ret = new String[8];
+		//randomly pick values from the big lists of attributes and return them to form a requirement
+		//also adds logic codes to determine what the requirement will look like, whether it is evaluating over or under the value given
 		ret[0] = location.get(r.nextInt(location.size())); //is not from, is from
 		ret[1] = location.get(r.nextInt(location.size())); //is not from, is from
 		ret[2] = location.get(r.nextInt(location.size())); //is not from, is from
@@ -72,7 +76,7 @@ public class DatasetGenerator {
 	}
 
 	private static void initializeArrays() throws Exception {
-		String [] header = {"firstNames", "lastNames", "location", "personalStatements", "gpa", "extracurriculars", "donation", "donated"};
+		String [] header = {"firstNames", "lastNames", "location", "personalStatements", "gpa", "extracurriculars", "donation", "donated"}; //all the headers in the CSV
 		CSVFormat format = CSVFormat.EXCEL.builder().setHeader("firstNames", "lastNames", "location", "personalStatements", "gpa", "extracurriculars", "donation", "donated").setSkipHeaderRecord(true).build();
 
 		Reader in = new FileReader("./src/data.csv");

@@ -1,7 +1,6 @@
-import static java.lang.Integer.valueOf;
-
 public class Character {
 	
+	//all the attributes of a person
 	private String firstName;
 	private String lastName;
 	private String location;
@@ -10,12 +9,13 @@ public class Character {
 	private String extracurricular;
 	private String donation;
 	private String donated;
-	private int faceNum;
 	
+	//dataset generator for randomly selected attributes
 	private static DatasetGenerator g = new DatasetGenerator();
 	
 	public Character() {
-		String[] c = g.generatePerson();
+		String[] c = g.generatePerson(); //pick a set of attributes
+		//assign
 		firstName = c[0];
 		lastName = c[1];
 		location = c[2];
@@ -28,12 +28,8 @@ public class Character {
 			donated = lastName + " Memorial Library"; //lol
 		}
 		if(getDonationAsInt()==0) {
-			donated = "Nothing";
+			donated = "Nothing"; //logical fix so that $0.00 people won't donate jets
 		}
-	}
-
-	public int getFaceNum() {
-		return faceNum;
 	}
 
 	public String getFirstName() {
@@ -57,7 +53,7 @@ public class Character {
 	}
 	
 	public double getGpaAsDouble() {
-		return Double.parseDouble(gpa);
+		return Double.parseDouble(gpa); //decimal GPA to value for comparison
 	}
 
 
@@ -72,7 +68,7 @@ public class Character {
 	public int getDonationAsInt() {
 		String temp = getDonation();
 		temp = temp.substring(1).replaceAll(",", ""); //remove $ and ,
-		return (int) Double.parseDouble(temp);
+		return (int) Double.parseDouble(temp); //parse sanitized donation for comparison
 	}
 
 	public String getDonated() {

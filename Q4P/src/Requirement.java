@@ -1,5 +1,6 @@
 public class Requirement {
 	
+	//all components of a requirment, including the control codes
 	private String loc1;
 	private String loc2;
 	private String loc3;
@@ -10,8 +11,7 @@ public class Requirement {
 	private boolean c2;
 	private boolean c3;
 	
-	public int reqSelect;  
-	
+	//dataset for requirement
 	private static DatasetGenerator g = new DatasetGenerator();
 	
 	public Requirement() {
@@ -22,10 +22,14 @@ public class Requirement {
 		loc3 = rC[2]; //is not from, is from
 		gpa =  Double.parseDouble(rC[3]); //higher or lower
 		if(gpa>4.70) {
-			gpa = 4.70;
+			gpa = 4.70; //don't want absurdly high criteria
 		}
+		if(gpa<1.00) {
+			gpa = 1.00; //don't want absurdly low criteria
+		}
+		
 		donS = rC[4];
-		don = (int) Double.parseDouble(rC[4].replaceAll(",", "").substring(1)); //higher or lower
+		don = (int) Double.parseDouble(rC[4].replaceAll(",", "").substring(1)); //remove , delimit and $, control code is higher or lower
 		
 		if(rC[5].equals("0")) { //0 for is not from, 1 is from
 			c1=false;
@@ -49,40 +53,36 @@ public class Requirement {
 		}
 	}
 	
-	public void change() {
-		 
-	}
-	
 	public String[] ParsedList() {
 		String[] s = new String[3];
-		if(c1) {
+		if(c1) { //control code true, is from,
 			s[0]="Admit students from "+loc1+", "+loc2+", and "+loc3+".";
 		}
-		else {
+		else { //control code false, is not from
 			s[0]="Do not admit students from "+loc1+", "+loc2+", and "+loc3+", they aren't worthy of Yamford.";
 		}
 		
-		if(c2) {
+		if(c2) { //control code true, GPA higher
 			s[1]="Admit students with a GPA higher than "+gpa+".";
 		}
-		else {
+		else { //control code false, GPA lower
 			s[1]="Admit students with a GPA lower than or equal to "+gpa+". Ever since the incident, we need to tone it down.";
 		}
 		
-		if(c3) {
-			if(don!=0) {
+		if(c3) { //control code true, donation higher than
+			if(don!=0) { 
 				s[2] = "Admit students whose family has contributed more than "+donS+".";
 			}
-			else {
+			else { //more than $0.00 sounds blah
 				s[2] = "Admit students whose family has contributed to the school foundation.";
 			}
 			
 		}
-		else {
+		else { //control code false, donation lower than
 			if(don!=0) {
 				s[2] = "Admit students whose family has contributed less than or equal to "+donS+". We don't want repeats of last time.";
 			}
-			else {
+			else { //less than or equal to $0.00 sounds blah
 				s[2] = "Admit students whose family have not contributed to the Yamford foundation. We have to lie low right now.";
 			}
 			
@@ -92,37 +92,37 @@ public class Requirement {
 	}
 	
 	public boolean correctDecision(String l, double gp, int d) {
-		boolean isLocation = false;
-		boolean isGPA = false;
-		boolean isDonation = false;
+		boolean isLocation = false; //location fits criteria
+		boolean isGPA = false; //GPA fits criteria
+		boolean isDonation = false; //donation fits criteria
 		
-		if(c1) { //LOCATION
+		if(c1) { //LOCATION, CC true (positive logic)
 			if(l.equals(loc1) || l.equals(loc2) || l.equals(loc3)) {
 				isLocation = true;
 			}
-		}
+		} //CC false (negative logic)
 		else if(!(l.equals(loc1) || l.equals(loc2) || l.equals(loc3))) {
 			isLocation = true;
 		}
 		
-		if(c2) { //GPA
+		if(c2) { //GPA, CC true (positive logic)
 			if(gp>gpa) {
 				isGPA = true;
 			}
-		}
+		} //CC false (negative logic)
 		else if(gp<=gpa) {
 			isGPA = true;
 		}
 		
-		if(c3) { //DONATION
+		if(c3) { //DONATION, CC true (positive logic)
 			if(d>don) {
 				isDonation=true;
 			}
-		}
+		} //CC false (negative logic)
 		else if(d<=don) {
 			isDonation = true;
 		}
-		System.out.println(isLocation + " " + isGPA + " " + isDonation);
+		
 		return isLocation && isGPA && isDonation;
 	}
 	
