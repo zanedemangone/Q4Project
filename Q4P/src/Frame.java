@@ -18,6 +18,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	
 	//CREATE THE OBJECT (STEP 1)
@@ -58,6 +61,17 @@ public void paint(Graphics g) {
 	}
 	
 	if(YamieTimer == 430) { 
+		
+		try {
+		      FileWriter myWriter = new FileWriter("./src/scores.txt");
+		      myWriter.write(b.getPoints()+"\n");
+		      myWriter.close();
+		      System.out.println("Successfully wrote to the file.");
+		   } catch (IOException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		   }
+		
 		System.exit(0);	//window closes once the timer allows the gif to fully play 
 	}
 
