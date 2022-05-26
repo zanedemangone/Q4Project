@@ -42,34 +42,28 @@ public class DatasetGenerator {
 	public String[] generateRequirements() {
 		Random r = new Random();
 		
-		String[] ret = new String[8];
+		String[] ret = new String[7];
 		//randomly pick values from the big lists of attributes and return them to form a requirement
 		//also adds logic codes to determine what the requirement will look like, whether it is evaluating over or under the value given
-		ret[0] = location.get(r.nextInt(location.size())); //is not from, is from
+		ret[0] = location.get(r.nextInt(location.size())); //is not from
 		ret[1] = location.get(r.nextInt(location.size())); //is not from, is from
 		ret[2] = location.get(r.nextInt(location.size())); //is not from, is from
 		ret[3] = gpa.get(r.nextInt(gpa.size())); //higher or lower
 		ret[4] = donation.get(r.nextInt(donation.size())); //higher or lower
 		//logic codes
-		if((int)r.nextInt()+100<=10) {
-			ret[5] = 1+""; //0 for is not from, 1 is is from
+
+		if((int)r.nextInt()+100<=5) {
+			ret[5] = 0+""; //0 is lower, 1 is higher
 		}
 		else { //(MORE LIKELY)
-			ret[5] = 0+""; //0 for is not from, 1 is is from
+			ret[5] = 1+""; //0 is lower, 1 is higher
 		}
 		
 		if((int)r.nextInt()+100<=5) {
 			ret[6] = 0+""; //0 is lower, 1 is higher
 		}
 		else { //(MORE LIKELY)
-			ret[6] = 1+""; //0 is lower, 1 is higher
-		}
-		
-		if((int)r.nextInt()+100<=5) {
-			ret[7] = 0+""; //0 is lower, 1 is higher
-		}
-		else { //(MORE LIKELY)
-			ret[7] = 1+""; //0 is lower, 1 is higher 
+			ret[6] = 1+""; //0 is lower, 1 is higher 
 		}
 
 		return ret;

@@ -5,6 +5,7 @@ public class ApplicationMinigame {
 	
 	private static int points = 0; //points in game
 	private int reward = 10; //point reward base
+	private int penalty = 100; //
 	private int gameLength = 2700; //2700 frames * 45 frames per second = 60 seconds
 	private int count;
 
@@ -25,7 +26,8 @@ public class ApplicationMinigame {
 				points += reward;
 			}
 			else if(wasCorrect == false) { //penalize losing more
-				points -= reward * 10;
+				points -= penalty;
+				penalty*=2;
 			}
 		}
 		
@@ -35,6 +37,7 @@ public class ApplicationMinigame {
 			}
 			else if(wasCorrect) { //was wrong
 				points -= reward * 10;
+				penalty*=2;
 			}
 		}
 	}

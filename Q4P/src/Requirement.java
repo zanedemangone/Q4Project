@@ -31,21 +31,15 @@ public class Requirement {
 		donS = rC[4];
 		don = (int) Double.parseDouble(rC[4].replaceAll(",", "").substring(1)); //remove , delimit and $, control code is higher or lower
 		
-		if(rC[5].equals("0")) { //0 for is not from, 1 is from
-			c1=false;
-		}
-		else {
-			c1=true;
-		}
 		
-		if(rC[6].equals("0")) { //0 is lower, 1 is higher
+		if(rC[5].equals("0")) { //0 is lower, 1 is higher
 			c2=false;
 		}
 		else {
 			c2=true;
 		}
 		
-		if(rC[7].equals("0")) { //0 is lower, 1 is higher
+		if(rC[6].equals("0")) { //0 is lower, 1 is higher
 			c3=false;
 		}
 		else {
@@ -55,12 +49,8 @@ public class Requirement {
 	
 	public String[] ParsedList() {
 		String[] s = new String[3];
-		if(c1) { //control code true, is from,
-			s[0]="Admit students from "+loc1+", "+loc2+", and "+loc3+".";
-		}
-		else { //control code false, is not from
-			s[0]="Do not admit students from "+loc1+", "+loc2+", and "+loc3+", they aren't worthy of Yamford.";
-		}
+		
+		s[0]="Do not admit students from "+loc1+", "+loc2+", and "+loc3+", they aren't worthy of Yamford.";
 		
 		if(c2) { //control code true, GPA higher
 			s[1]="Admit students with a GPA higher than "+gpa+".";
