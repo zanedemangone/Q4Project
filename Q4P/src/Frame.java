@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -63,12 +64,12 @@ public void paint(Graphics g) {
 	if(YamieTimer == 430) { 
 		
 		try {
-		      FileWriter myWriter = new FileWriter("./src/scores.txt");
-		      myWriter.write(b.getPoints()+"\n");
-		      myWriter.close();
-		      System.out.println("Successfully wrote to the file.");
+		      FileWriter w = new FileWriter("./src/scores.txt", true);
+		      BufferedWriter bw = new BufferedWriter(w);
+		      bw.write(b.getPoints()+"");
+		      bw.newLine();
+		      bw.close();
 		   } catch (IOException e) {
-		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		   }
 		
