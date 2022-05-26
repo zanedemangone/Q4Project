@@ -25,6 +25,8 @@ public class Application {
 	private String dMoney; 
 	private String location;
 	private String donation;
+	private String email; 
+	private boolean email_check;
 	
 	//the applicants
 	private Character c = new Character();
@@ -49,42 +51,54 @@ public class Application {
 		dMoney = c.getDonation(); 
 		location = c.getLocation(); 
 		donation = c.getDonated(); 
+		email = c.getEmail(); 
 	}
 	
 	public void paint(Graphics g) { //paint the frame
 		g.setColor(Color.BLACK);
-		g.setFont(new Font("TimesRoman", Font.PLAIN, 40)); 
-		
-		//name 
-		g.drawString(name +" "+lastName , 500, 187);
-		
-		//gpa 
-		g.drawString(gpa, 465, 323);
-		
-		//pStatement
-		g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-		g.drawString(pStatement, 120, 535);
-		
-		//ec
-		g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-		if(ec.length() < 34) { //break up string if it is too long
-			g.drawString(ec, 1020, 240);
-		}else {
-			g.drawString(ec.substring(0, 34), 1020, 240);
-			g.drawString(ec.substring(34), 1020, 260); 
-		}
-		
-		//item donated 
-		g.drawString(donation, 640, 386);
-		
-		//dMoney
-		g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
-		g.drawString(dMoney, 852, 330);
-		
-		//location
-		g.setFont(new Font("TimesRoman", Font.PLAIN, 40));
-		g.drawString(location, 570, 256); 
+		if(!email_check) {
+			g.setFont(new Font("TimesRoman", Font.PLAIN, 40)); 
+			
+			//name 
+			g.drawString(name +" "+lastName , 500, 187);
+			
+			//gpa 
+			g.drawString(gpa, 465, 323);
+			
+			//pStatement
+			g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+			g.drawString(pStatement, 120, 535);
+			
+			//ec
+			g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+			if(ec.length() < 34) { //break up string if it is too long
+				g.drawString(ec, 1020, 240);
+			}else {
+				g.drawString(ec.substring(0, 34), 1020, 240);
+				g.drawString(ec.substring(34), 1020, 260); 
+			}
+			
+			//item donated 
+			g.drawString(donation, 640, 386);
+			
+			//dMoney
+			g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+			g.drawString(dMoney, 852, 330);
+			
+			//location
+			g.setFont(new Font("TimesRoman", Font.PLAIN, 40));
+			g.drawString(location, 570, 256); 
 
+		}
+		if(email_check == true) {
+			g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+			g.drawString(email, 200, 200);
+		}
+	}
+	
+	//checks if player is on the email
+	public void email_check(boolean a) {
+		email_check = a; 
 	}
 	
 	public String getName() {
@@ -117,6 +131,10 @@ public class Application {
 
 	public String getDonation() {
 		return donation;
+	}
+	
+	public String getEmail() {
+		return email; 
 	}
 
 	public Character getC() {
