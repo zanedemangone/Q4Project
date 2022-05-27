@@ -54,7 +54,7 @@ public void paint(Graphics g) {
 	super.paintComponent(g);
 	bg.paint(g); 
 	
-	g.drawRect(185, 180, 1200, 550);
+	//g.drawRect(185, 180, 1200, 550);
 	
 	if(yamie_check) {
 		YamieTimer++; 	//timer for the length of the gif 
