@@ -96,11 +96,6 @@ public class Application {
 		}
 	}
 	
-	//checks if player is on the email
-	public void email_check(boolean a) {
-		email_check = a; 
-	}
-	
 	public String getName() {
 		return name;
 	}
