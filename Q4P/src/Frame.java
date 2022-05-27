@@ -94,10 +94,9 @@ public void paint(Graphics g) {
 			report_check = false; 
 			r = new Requirement();
 			parseList = r.ParsedList();
-		}else {
-			bg.updateToGameOver();	//bad ending if the player fails to meet the requirements
-			yamie_check = true; 
-			report_check = false; 
+		}
+		else {
+			endGame();//bad ending if the player fails to meet the requirements
 		}
 	}
 	
@@ -144,6 +143,11 @@ public Frame() {
 	f.setVisible(true);
 	}
 
+	public void endGame() {
+		bg.updateToGameOver();	//bad ending if the player fails to meet the requirements
+		yamie_check = true; 
+		report_check = false; 
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
