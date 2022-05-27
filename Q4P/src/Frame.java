@@ -76,12 +76,12 @@ public void paint(Graphics g) {
 		g.drawString(Integer.toString(b.getPoints()), 1300, 177);
 	}
 	
-	if(mail_check) {
-		g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
-		g.drawString(a.getEmail(), 250, 200);
+	if(mail_check) {	//displays the email when the player clicks on one
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+		g.drawString(a.getEmail(), 250, 300);
 	}
 	
-	if(!report_check) { //if outside of the application game, reset the game so it is fresh for the next go
+	if(!report_check && !mail_check) { //if outside of the application game, reset the game so it is fresh for the next go
 		b.setGameLength(2700); 
 		a.change();
 	}
