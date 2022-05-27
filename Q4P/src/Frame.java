@@ -43,6 +43,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean mail_check; 
 	
 	int req = 100; //score quota 
+	int req_constant = 100; 
 	int YamieTimer = 0; //timer for cutscene
 
 
@@ -212,7 +213,8 @@ public Frame() {
 			ao_check = false; 
 			report_check = true;
 			parseListPaint = true;
-			req*=2; 
+			req = b.getPoints() + req_constant; 
+			req_constant*=2; 
 		}
 
 		//logic for the accept button
