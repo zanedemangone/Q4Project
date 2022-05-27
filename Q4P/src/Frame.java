@@ -44,6 +44,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean interview_check = false; 
 	boolean yamie_check = false; 
 	boolean score_check; 
+	boolean mail_check; 
 	
 	int req = 100; //score quota 
 	int YamieTimer = 0; //timer for cutscene
@@ -56,6 +57,8 @@ public static void main(String[] arg) {
 public void paint(Graphics g) {
 	super.paintComponent(g);
 	bg.paint(g); 
+	
+	//g.drawRect(185, 180, 1200, 550);
 	
 	if(yamie_check) {
 		YamieTimer++; 	//timer for the length of the gif 
@@ -88,7 +91,12 @@ public void paint(Graphics g) {
 		g.drawString(Integer.toString(b.getPoints()), 1300, 177);
 	}
 	
-	if(!report_check) { //if outside of the application game, reset the game so it is fresh for the next go
+	if(mail_check) {	//displays the email when the player clicks on one
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+		g.drawString(a.getEmail(), 250, 300);
+	}
+	
+	if(!report_check && !mail_check) { //if outside of the application game, reset the game so it is fresh for the next go
 		b.setGameLength(2700); 
 		a.change();
 	}
@@ -101,10 +109,9 @@ public void paint(Graphics g) {
 			report_check = false; 
 			r = new Requirement();
 			parseList = r.ParsedList();
-		}else {
-			bg.updateToGameOver();	//bad ending if the player fails to meet the requirements
-			yamie_check = true; 
-			report_check = false; 
+		}
+		else {
+			endGame();//bad ending if the player fails to meet the requirements
 		}
 	}
 	
@@ -151,6 +158,11 @@ public Frame() {
 	f.setVisible(true);
 	}
 
+	public void endGame() {
+		bg.updateToGameOver();	//bad ending if the player fails to meet the requirements
+		yamie_check = true; 
+		report_check = false; 
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
@@ -172,7 +184,15 @@ public Frame() {
 			screen_check = false; 
 			gmail_check = true; 
 		}
+		
+		//transition from gmail to single mail
+		if((arg0.getX() >= 185 && arg0.getX() <= 1385) && (arg0.getY() >= 180 && arg0.getY() <= 750) && gmail_check){
+			bg.updateToMail(); 
+			gmail_check = false; 
+			mail_check = true; 
 
+		}
+		
 		//transition from the screen page to the login page 
 		if((arg0.getX() >= 154 && arg0.getX() <= 224) && (arg0.getY() >= 240 && arg0.getY() <= 300) && screen_check) {
 			bg.updateToLogin();
@@ -290,6 +310,13 @@ public Frame() {
 				bg.updateToRules();
 				rules_check = true;
 				r_close_check = false;
+			}
+			
+			if(mail_check == true) {
+				bg.updateToGmail();
+				gmail_check = true; 
+				mail_check = false; 
+				a.change();
 			}
 		}
 	}

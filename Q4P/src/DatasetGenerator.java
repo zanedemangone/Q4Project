@@ -13,6 +13,7 @@ public class DatasetGenerator {
 	private static ArrayList<String> extracurriculars = new ArrayList<String>();
 	private static ArrayList<String> donation = new ArrayList<String>();
 	private static ArrayList<String> donated = new ArrayList<String>();
+	private static ArrayList<String> email = new ArrayList<String>(); 
 
 	public DatasetGenerator() {
 		try {
@@ -25,7 +26,7 @@ public class DatasetGenerator {
 	public String[] generatePerson() {
 		Random r = new Random();
 		
-		String[] ret = new String[8];
+		String[] ret = new String[9];
 		//randomly pick values from the big lists of attributes and return them to form a character
 		ret[0] = firstNames.get(r.nextInt(firstNames.size()));
 		ret[1] = lastNames.get(r.nextInt(lastNames.size()));
@@ -35,7 +36,7 @@ public class DatasetGenerator {
 		ret[5] = extracurriculars.get(r.nextInt(extracurriculars.size()));
 		ret[6] = donation.get(r.nextInt(donation.size()));
 		ret[7] = donated.get(r.nextInt(donated.size()));
-		
+		ret[8] = email.get(r.nextInt(email.size())); 
 		return ret;
 	}	
 	
@@ -70,8 +71,8 @@ public class DatasetGenerator {
 	}
 
 	private static void initializeArrays() throws Exception {
-		String [] header = {"firstNames", "lastNames", "location", "personalStatements", "gpa", "extracurriculars", "donation", "donated"}; //all the headers in the CSV
-		CSVFormat format = CSVFormat.EXCEL.builder().setHeader("firstNames", "lastNames", "location", "personalStatements", "gpa", "extracurriculars", "donation", "donated").setSkipHeaderRecord(true).build();
+		String [] header = {"firstNames", "lastNames", "location", "personalStatements", "gpa", "extracurriculars", "donation", "donated", "email"}; //all the headers in the CSV
+		CSVFormat format = CSVFormat.EXCEL.builder().setHeader("firstNames", "lastNames", "location", "personalStatements", "gpa", "extracurriculars", "donation", "donated", "email").setSkipHeaderRecord(true).build();
 
 		Reader in = new FileReader("./src/data.csv");
 		CSVParser parser = new CSVParser(in, format);
@@ -100,6 +101,9 @@ public class DatasetGenerator {
 			}
 			if(!record.get("donated").equals("")) {
 				donated.add(record.get("donated"));
+			}
+			if(!record.get("email").equals("")) {
+				email.add(record.get("email"));
 			}
 		}
 	}

@@ -5,7 +5,7 @@ public class ApplicationMinigame {
 	
 	private static int points = 0; //points in game
 	private int reward = 10; //point reward base
-	private int penalty = 100; //
+	private int penalty = 25; //
 	private int gameLength = 2700; //2700 frames * 45 frames per second = 60 seconds
 	private int count;
 
@@ -22,6 +22,12 @@ public class ApplicationMinigame {
 	
 	public void evaluationMade(boolean wasCorrect, boolean accepting) {
 		if(accepting) { //positive logic, character is within the criteria
+
+			
+			if(penalty <= -500) {
+				penalty = -500; //prevent underflow
+			}
+			
 			if(wasCorrect) {
 				points += reward;
 			}
@@ -36,9 +42,13 @@ public class ApplicationMinigame {
 				points += reward;
 			}
 			else if(wasCorrect) { //was wrong
-				points -= reward * 10;
+				points -= penalty;
 				penalty*=2;
 			}
+		}
+		
+		if(points<=-9999) {
+			points=-9999; //prevent underflow
 		}
 	}
 	

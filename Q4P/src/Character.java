@@ -9,6 +9,7 @@ public class Character {
 	private String extracurricular;
 	private String donation;
 	private String donated;
+	private String email; 
 	
 	//dataset generator for randomly selected attributes
 	private static DatasetGenerator g = new DatasetGenerator();
@@ -24,6 +25,8 @@ public class Character {
 		extracurricular = c[5];
 		donation = c[6];
 		donated = c[7];
+		email = c[8]; 
+		
 		if(getDonationAsInt()>=850000) {
 			donated = lastName + " Memorial Library"; //lol
 		}
@@ -73,5 +76,9 @@ public class Character {
 
 	public String getDonated() {
 		return donated;
+	}
+	
+	public String getEmail() {
+		return email; 
 	}
 }

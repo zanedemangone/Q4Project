@@ -81,6 +81,10 @@ public class Background{
 	public void updateToGameOver() {
 		img = getImage("/imgs/abs_final.gif"); 
 	}
+	
+	public void updateToMail() {
+		img = getImage("/imgs/mail.png"); 
+	}
 
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
