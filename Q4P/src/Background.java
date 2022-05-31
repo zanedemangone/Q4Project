@@ -85,6 +85,10 @@ public class Background{
 	public void updateToMail() {
 		img = getImage("/imgs/mail.png"); 
 	}
+	
+	public void updateToBadEnd() {
+		img = getImage("/imgs/BadBadEnd.gif"); 
+	}
 
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);

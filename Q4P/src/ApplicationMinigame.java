@@ -8,7 +8,8 @@ public class ApplicationMinigame {
 	private int penalty = 25; //
 	private int gameLength = 2700; //2700 frames * 45 frames per second = 60 seconds
 	private int count;
-
+	private boolean badEnd = false; //checks whether the player has reached the bad end
+	
 	Timer t = new Timer();
 	TimerTask tt = new TimerTask() { //keep the game running
 		public void run() {
@@ -48,7 +49,7 @@ public class ApplicationMinigame {
 		}
 		
 		if(points<=-9999) {
-			points=-9999; //prevent underflow
+			badEnd = true; 
 		}
 	}
 	
@@ -66,7 +67,10 @@ public class ApplicationMinigame {
 
 	public void setGameLength(int l) {
 		gameLength=l;
-		
+	}
+	
+	public boolean getBadEnd() {
+		return badEnd; 
 	}
 	
 }

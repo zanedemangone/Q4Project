@@ -43,11 +43,14 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean report_check = false; 
 	boolean interview_check = false; 
 	boolean yamie_check = false; 
+	boolean bad_check = false; 
 	boolean score_check; 
 	boolean mail_check; 
 	
 	int req = 100; //score quota 
+	int req_constant = 100; 
 	int YamieTimer = 0; //timer for cutscene
+	int BadEndTimer = 0; //timer for cutscene
 
 
 public static void main(String[] arg) {
@@ -57,11 +60,13 @@ public static void main(String[] arg) {
 public void paint(Graphics g) {
 	super.paintComponent(g);
 	bg.paint(g); 
-	
-	//g.drawRect(185, 180, 1200, 550);
-	
+	System.out.println(BadEndTimer);
 	if(yamie_check) {
 		YamieTimer++; 	//timer for the length of the gif 
+	}
+	
+	if(bad_check) {
+		BadEndTimer++; //timer for the length of the gif
 	}
 	
 	if(YamieTimer == 430) { 
@@ -77,6 +82,10 @@ public void paint(Graphics g) {
 		   }
 		
 		System.exit(0);	//window closes once the timer allows the gif to fully play 
+	}
+	
+	if(BadEndTimer == 197) {
+		System.exit(0);
 	}
 
 	if(report_check && b.getGameLength() >= 0) {	//shows the timer on the report screen only when the player is on the report screen 
@@ -101,16 +110,18 @@ public void paint(Graphics g) {
 		a.change();
 	}
 	
-	if(b.getGameLength() == 0) {	//logic for once the session timer hits 0 	
-		if(req <= b.getPoints()) {	//good ending: resets to the admission officer screen and you live to see another day 
-			bg.updateToAO();
-			b.setGameLength(2700); 
-			ao_check = true; 
-			report_check = false; 
-			r = new Requirement();
-			parseList = r.ParsedList();
-		}
-		else {
+	if(b.getBadEnd()) {
+			shortGame(); //bad ending if the player goes above -9999 points
+		}else if(b.getGameLength() == 0) {
+			//logic for once the session timer hits 0 	
+			if(req <= b.getPoints()) {	//good ending: resets to the admission officer screen and you live to see another day 
+				bg.updateToAO();
+				b.setGameLength(2700); 
+				ao_check = true; 
+				report_check = false; 
+				r = new Requirement();
+				parseList = r.ParsedList();
+		}else {
 			endGame();//bad ending if the player fails to meet the requirements
 		}
 	}
@@ -162,6 +173,12 @@ public Frame() {
 		bg.updateToGameOver();	//bad ending if the player fails to meet the requirements
 		yamie_check = true; 
 		report_check = false; 
+	}
+	
+	public void shortGame() {
+		bg.updateToBadEnd();
+		report_check = false; 
+		bad_check = true; 
 	}
 
 	@Override
@@ -227,7 +244,8 @@ public Frame() {
 			ao_check = false; 
 			report_check = true;
 			parseListPaint = true;
-			req*=2; 
+			req = b.getPoints() + req_constant; 
+			req_constant*=2; 
 		}
 
 		//logic for the accept button
